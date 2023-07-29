@@ -1,3 +1,2 @@
 web: unset PORT && env RUBY_DEBUG_OPEN=true bin/rails server
 vite: bin/vite dev --clobber
-custom_web: bundle exec puma
