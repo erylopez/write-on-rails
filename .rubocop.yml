@@ -1,0 +1,38 @@
+require:
+  - standard
+  - rubocop-rails
+  - rubocop-rspec
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/**/*
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+
+Layout/ExtraSpacing:
+  AllowForAlignment: true
+Rails:
+  Enabled: true
+Bundler/DuplicatedGem:
+  Enabled: false
+Layout/ExtraSpacing:
+  AllowForAlignment: true
+Layout/SpaceBeforeFirstArg:
+  AllowForAlignment: true
+Layout/SpaceAroundOperators:
+  AllowForAlignment: true
+Rails/TimeZone:
+  Enabled: false
+RSpec/Capybara/FeatureMethods:
+  Enabled: ['feature', 'scenario']
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/DescribedClass:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
