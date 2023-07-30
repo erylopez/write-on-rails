@@ -2,8 +2,8 @@ class User < ApplicationRecord
   include Onbordeable
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable,
-         omniauth_providers: [:github]
+    :recoverable, :rememberable, :validatable, :omniauthable,
+    omniauth_providers: [:github]
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
