@@ -27,3 +27,5 @@ Turbo.start()
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
 import '../controllers'
+import "flowbite"
+import "flowbite/dist/flowbite.turbo.js"
