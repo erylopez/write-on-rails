@@ -1,2 +1,9 @@
-Step 1
-<%= link_to "Next Step", complete_step_1_onboarding_index_path, class: "text-blue-600 underline font-bold", data: { turbo: false } %>
+<div class="p-6">
+  <h1 class="text-3xl mb-6">Onboarding Step 1</h1>
+  <div>
+    <%= link_to "Select notion as writing platform", complete_step_1_onboarding_index_path, class: "text-blue-600 underline" %>
+  <div class="mt-12">
+    <%= link_to "Next Step", complete_step_1_onboarding_index_path, class: "text-blue-600 underline font-bold", data: { turbo: false } %>
+  </div>
+
+</div>

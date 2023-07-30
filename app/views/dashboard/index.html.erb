@@ -12,6 +12,8 @@
   <p>Notion status: <%= current_user.notion_access_token.present? ? "Ready" : "Pending" %></p>
   <p>Notion Access Token <%= current_user.notion_access_token %> </p>
   <p>Notion Page ID <%= current_user.notion_page_id %> </p>
+  <p>Hashnode Access Token <%= current_user.hashnode_access_token %></p>
+  <p>Dev.to API Key <%= current_user.devto_api_key %></p>
   <% if current_user.notion_page_id %>
     <%= link_to "Test pulling posts from the page id", notion_fetch_page_onboarding_index_path, class: "text-blue-600 underline" %>
   <% else %>

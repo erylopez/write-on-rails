@@ -1,3 +1,18 @@
-Step 2
-<%= link_to "Next Step", complete_step_2_onboarding_index_path, class: "text-blue-600 underline font-bold", data: { turbo: false } %>
-<%= link_to "Previous Step", previous_step_onboarding_index_path, class: "text-red-600 underline font-bold", data: { turbo: false } %>
+<div class="p-6">
+  <h1 class="text-3xl mb-6">Onboarding Step 2</h1>
+  <div>
+    <%= link_to "Testing Notion Oauth", notion_oauth_url, class: "text-blue-600 underline" %>
+    <p>Notion status: <%= current_user.notion_access_token.present? ? "Ready" : "Pending" %></p>
+    <p>Notion Access Token <%= current_user.notion_access_token %> </p>
+    <p>Notion Page ID <%= current_user.notion_page_id %> </p>
+    <% if current_user.notion_page_id %>
+      <%= link_to "Test pulling posts from the page id", notion_fetch_page_onboarding_index_path, class: "text-blue-600 underline" %>
+    <% else %>
+      <p class="text-red-600">Please do the connection process with notion again and make sure to use the provided template</p>
+    <% end %>
+  </div>
+  <div class="mt-12">
+    <%= link_to "Next Step", complete_step_2_onboarding_index_path, class: "text-blue-600 underline font-bold", data: { turbo: false } %>
+    <%= link_to "Previous Step", previous_step_onboarding_index_path, class: "text-red-600 underline font-bold", data: { turbo: false } %>
+  </div>
+</div>

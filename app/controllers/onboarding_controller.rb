@@ -18,10 +18,11 @@ class OnboardingController < ApplicationController
   end
 
   def complete_step_3
-    if current_user.complete_step_3
+    if update_publishing_platforms
+      current_user.complete_step_3
       redirect_to dashboard_index_path
     else
-      redirect_to step_3_onboarding_index_path
+      render :step_3
     end
   end
 
@@ -48,6 +49,14 @@ class OnboardingController < ApplicationController
   end
 
   private
+
+  def update_publishing_platforms
+    if params[:user] && (params[:user][:hashnode_access_token].present? || params[:user][:devto_api_key].present?)
+      current_user.update(params.require(:user).permit(:hashnode_access_token, :devto_api_key))
+    else
+      true
+    end
+  end
 
   def redirect_to_current_step
     case current_user.reload.onboarding_step

@@ -30,11 +30,11 @@ module Onbordeable
   end
 
   def has_selected_a_writing_platform?
-    true
+    notion_page_id.present?
   end
 
   def writing_platform_is_connected?
-    true
+    true #optional atm
   end
 
   def next_step

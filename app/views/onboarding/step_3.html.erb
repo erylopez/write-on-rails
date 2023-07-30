@@ -1,3 +1,25 @@
-Step 3
+<div class="p-6">
+  <h1 class="text-3xl mb-6">Onboarding Step 3</h1>
+  <% if flash[:alert] %>
+    <p class="text-red-600"><%= flash[:alert] %></p>
+  <% end %>
+
+  <% if current_user.errors.any? %>
+    <% current_user.errors.full_messages.each do |message|%>
+      <h3><%= message %> </h3>
+    <%end%>
+  <%end%>
+  <div>
+    <%= form_for current_user, url: complete_step_3_onboarding_index_path, method: :get do |f| %>
+      <%= f.label :hashnode_access_token %>
+      <%= f.text_field :hashnode_access_token %>
+
+      <%= f.label :devto_api_key %>
+      <%= f.text_field :devto_api_key %>
+
+      <%= f.submit "Send" %>
+    <% end %>
+  </div>
+</div>
 <%= link_to "Next Step", complete_step_3_onboarding_index_path, class: "text-blue-600 underline font-bold", data: { turbo: false }%>
 <%= link_to "Previous Step", previous_step_onboarding_index_path, class: "text-red-600 underline font-bold", data: { turbo: false } %>
