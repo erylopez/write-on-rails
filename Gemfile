@@ -16,6 +16,8 @@ gem "vite_rails"
 gem "devise"
 gem "omniauth-github", "~> 2.0.0"
 gem "omniauth-rails_csrf_protection"
+gem "pry-rails"
+gem "httparty"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]

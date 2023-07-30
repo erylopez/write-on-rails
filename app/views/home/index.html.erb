@@ -7,4 +7,6 @@
   <% else %>
     <%= button_to "Login with Github", user_github_omniauth_authorize_path , data: { turbo: false }, class: "font-bold underline" %>
   <% end %>
+
+  <%= link_to "Testing Notion Oauth", notion_oauth_url, class: "text-red-600" %>
 </div>
