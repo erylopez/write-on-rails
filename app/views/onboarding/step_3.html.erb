@@ -8,7 +8,7 @@
         </div>
         <%= form_for current_user, url: complete_step_3_onboarding_index_path, method: :get do |f| %>
           <ul class="flex flex-col w-full gap-6 mb-6">
-            <li class="flex  gap-4 p-4 items-center border border-gray-600">
+            <li class="flex  gap-4 p-4 items-center border border-gray-600 rounded-lg">
               <img src="/devto.png" alt="dev.to photo" class="w-8 h-8">
               <div class="w-full">
                 <div class="relative w-full">
@@ -24,9 +24,9 @@
                 </div>
               </div>
             </li>
-            <li class="flex  gap-4 p-4 items-center border border-gray-600">
+            <li class="flex  gap-4 p-4 items-center border border-gray-600 rounded-lg">
               <img src="/hashnode.png" alt="writing photo" class="w-8 h-8">
-              <div class="w-full">
+              <div class="w-full flex flex-col gap-2">
                 <div class="relative w-full">
                   <%= f.text_field :hashnode_access_token, placeholder: "Hashnode Token", class: "block w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
                   <a href="https://hashnode.com/settings/developer" target="_blank" class="text-white absolute right-2 inset-y-2 bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-800">
@@ -38,9 +38,12 @@
                     </div>
                   </a>
                 </div>
+                <div class="relative w-full">
+                  <%= f.text_field :hashnode_access_token, placeholder: "Hashnode username", class: "block w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+                </div>
               </div>
             </li>
-            <li class="flex  gap-4 p-4 items-center border border-gray-600 ">
+            <li class="flex  gap-4 p-4 items-center border border-gray-600 rounded-lg ">
               <img src="/medium.png" alt="writing photo" class="w-8 h-8 ">
               <div id="devto-box" class="w-full">
                 <div class="relative w-full">
@@ -57,7 +60,6 @@
               </div>
             </li>
           </ul>
-
           <button type="submit" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mr-2 mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-300">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -65,7 +67,6 @@
             Continue
           </button>
         <% end %>
-
         <ol class="flex items-center w-full m-auto gap-4 pt-20">
           <li class="flex items-center w-full text-purple-600 dark:text-purple-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-purple-100 after:border-4 after:inline-block dark:after:border-purple-800">
           </li>
@@ -76,7 +77,6 @@
           <li class="flex items-center w-full before:content-[''] before:w-full before:h-1 before:border-b before:border-purple-100 before:border-4 before:inline-block dark:before:border-gray-600">
           </li>
         </ol>
-
       </div>
       <div class="w-1/2">
         <div class="py-8 px-4">
@@ -86,6 +86,4 @@
     </div>
   </div>
 </div>
-
-
 <%= link_to "Previous Step", previous_step_onboarding_index_path, class: "text-purple-700 underline font-bold", data: { turbo: false } %>
