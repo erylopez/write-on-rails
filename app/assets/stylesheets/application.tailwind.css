@@ -4,9 +4,20 @@
 
 @layer components {
   .button-default {
-   @apply relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-purple-600 to-red-500  hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-500;
+    @apply relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-purple-600 to-red-500 hover: text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-500;
   }
+
   .bg-blur {
     backdrop-filter: blur(6px);
+  }
+
+  .field_with_errors label {
+    @apply text-red-600;
+  }
+
+  .field_with_errors input,
+  .field_with_errors textarea,
+  .field_with_errors select {
+    @apply border-red-300 text-red-900 placeholder-red-300;
   }
 }
