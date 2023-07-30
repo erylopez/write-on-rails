@@ -1,1 +1,28 @@
 <%= link_to "Reset onboarding", reset_onboarding_index_path, class: "text-blue-600 underline" %>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
+
+<div class="p-6">
+  <h1 class="text-3xl mb-6">Onboarding</h1>
+
+  <%= link_to "Testing Notion Oauth", notion_oauth_url, class: "text-blue-600 underline" %>
+  <p>Notion status: <%= current_user.notion_access_token.present? ? "Ready" : "Pending" %></p>
+  <p>Notion Access Token <%= current_user.notion_access_token %> </p>
+  <p>Notion Page ID <%= current_user.notion_page_id %> </p>
+  <% if current_user.notion_page_id %>
+    <%= link_to "Test pulling posts from the page id", notion_fetch_page_onboarding_index_path, class: "text-blue-600 underline" %>
+  <% else %>
+    <p class="text-red-600">Please do the connection process with notion again and make sure to use the provided template</p>
+  <% end %>
+
+  <%= turbo_frame_tag :pages %>
+
+  <textarea name="markdown" id="markdown" cols="30" rows="10"></textarea>
+</div>
+<script>
+  var simplemde = new SimpleMDE({ element: document.getElementById("markdown"), renderingConfig: { codeSyntaxHighlighting: true, singleLineBreaks: false} });
+  simplemde.value("# This is some markdown text\n\nAnd this is a code block\n\n```var simplemde = undefined;```\n\n")
+</script>
