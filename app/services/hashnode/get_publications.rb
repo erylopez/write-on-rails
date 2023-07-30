@@ -23,8 +23,8 @@ class Hashnode::GetPublications < Hashnode::Base
         }
       }
     }
-    
-    headers = { "Content-Type": "application/json", "Authorization": @authorization_code}
+
+    headers = {"Content-Type": "application/json", Authorization: @authorization_code}
 
     HTTParty.post("https://api.hashnode.com", body: {query: query}.to_json, headers: headers)
   end

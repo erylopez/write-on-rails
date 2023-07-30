@@ -1,0 +1,2 @@
+class Devto::Base
+end
