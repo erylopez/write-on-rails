@@ -14,4 +14,12 @@ class User < ApplicationRecord
       user.github_access_token = auth.credentials.token
     end
   end
+
+  def hashnode_ready?
+    hashnode_access_token.present? && hashnode_username.present?
+  end
+
+  def devto_ready?
+    devto_api_key.present?
+  end
 end
