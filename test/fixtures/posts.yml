@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  md_content: MyText
+  hashnode_id: MyString
+  devto_id: MyString
+  notion_id: MyString
+  medium_id: MyString
+  tags: MyString
+
+two:
+  title: MyString
+  md_content: MyText
+  hashnode_id: MyString
+  devto_id: MyString
+  notion_id: MyString
+  medium_id: MyString
+  tags: MyString

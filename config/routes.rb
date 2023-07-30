@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :notion do
+    resources :sync_pages, only: [:index, :create]
+  end
+
+  resources :posts
+  resources :reposts
   resources :dashboard, only: :index
   root "home#index"
   get "/login", to: "home#login"
