@@ -12,4 +12,11 @@ class User < ApplicationRecord
       user.github_access_token = auth.credentials.token
     end
   end
+
+  def attributes_from_keys(*keys)
+    keys.inject({}) do |hash_to_return, key|
+      binding.pry
+      hash_to_return.merge(key => send(key))
+    end
+  end
 end
