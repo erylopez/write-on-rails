@@ -98,11 +98,17 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
     dry-cli (1.0.0)
     erubi (1.12.0)
     faraday (2.7.10)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
+    faraday-mashify (0.1.1)
+      faraday (~> 2.0)
+      hashie
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
     faraday-net_http (3.0.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -137,6 +143,7 @@ GEM
     minitest (5.19.0)
     msgpack (1.7.2)
     multi_xml (0.6.0)
+    multipart-post (2.3.0)
     net-imap (0.3.7)
       date
       net-protocol
@@ -151,6 +158,15 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
+    notion-ruby-client (1.2.1)
+      dotenv
+      faraday (>= 2.0)
+      faraday-mashify (>= 0.1.1)
+      faraday-multipart (>= 1.0.4)
+      hashie (~> 5)
+    notion_to_md (2.2.3)
+      activesupport (~> 7)
+      notion-ruby-client (~> 1)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
       jwt (>= 1.0, < 3.0)
@@ -336,6 +352,8 @@ DEPENDENCIES
   devise
   httparty
   jbuilder
+  notion-ruby-client
+  notion_to_md
   omniauth-github (~> 2.0.0)
   omniauth-rails_csrf_protection
   pg (~> 1.1)
