@@ -302,6 +302,13 @@ GEM
     standard-performance (1.1.2)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.18.0)
+    state_machines (0.6.0)
+    state_machines-activemodel (0.9.0)
+      activemodel (>= 6.0)
+      state_machines (>= 0.6.0)
+    state_machines-activerecord (0.9.0)
+      activerecord (>= 6.0)
+      state_machines-activemodel (>= 0.9.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
     thor (1.2.2)
@@ -365,6 +372,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   standard
+  state_machines-activerecord
   stimulus-rails
   turbo-rails
   tzinfo-data
