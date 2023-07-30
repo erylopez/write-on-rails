@@ -1,5 +1,5 @@
 <div class="px-4 flex gap-4 self-center m-auto">
-  <aside id="logo-sidebar" class="w-1/4 transition-transform -translate-x-full  sm:translate-x-0 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg" aria-label="Sidebar">
+  <aside id="logo-sidebar" class="w-1/6 transition-transform -translate-x-full  sm:translate-x-0 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800 rounded-lg" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto ">
       <ul class="space-y-2 font-medium">
         <li>
@@ -38,12 +38,12 @@
       </ul>
     </div>
   </aside>
-  <div class="w-2/4">
+  <div class="w-3/6">
     <% current_user.posts.each do |post| %>
       <%= render partial: 'posts/post_card', locals: {post: post} %>
     <% end %>
   </div>
-  <div class="w-1/4">
+  <div class="w-2/6">
     <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800">
       <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
         Expand your reach
