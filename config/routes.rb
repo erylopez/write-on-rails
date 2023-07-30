@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   get "users/auth/notion/callback", to: "users/oauth_callbacks#notion"
 
   resources :onboarding, only: :index do
@@ -25,5 +25,4 @@ Rails.application.routes.draw do
   get "/onboarding/step3", to: "home#onboarding_step3"
   get "/onboarding/step4", to: "home#onboarding_step4"
   get "/posts/post1", to: "home#post1"
-  get "/dashboard", to: "home#dashboard"
 end
