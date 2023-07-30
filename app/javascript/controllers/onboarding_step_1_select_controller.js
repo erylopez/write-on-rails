@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ["nextButton"]
 
   update() {
-    this.nextButtonTarget.classList.remove("hidden")
+    //disabled because we are runing low on time in the hackaton 😅
+    //this.nextButtonTarget.classList.remove("hidden")
   }
 }
