@@ -23,8 +23,8 @@ class Hashnode::CreatePost
 
     variables = {
       input: {
-        title: @post.title,
         isPartOfPublication: {publicationId: @publication_id},
+        title: @post.title,
         contentMarkdown: @post.md_content,
         tags: [
           {
