@@ -3,9 +3,17 @@ class OnboardingController < ApplicationController
     redirect_to_current_step and return
   end
 
-  def step_1; end
-  def step_2; end
-  def step_3; end
+  def step_1
+    redirect_to_current_step and return if !current_user.step_1?
+  end
+  
+  def step_2
+    redirect_to_current_step and return if !current_user.step_2?
+  end
+
+  def step_3
+    redirect_to_current_step and return if !current_user.step_3?
+  end
 
   def complete_step_1
     current_user.complete_step_1
