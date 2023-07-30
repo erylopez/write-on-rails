@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   get "users/auth/notion/callback", to: "users/oauth_callbacks#notion"
 
   resources :onboarding, only: :index do
@@ -16,6 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :notion do
+    resources :sync_pages, only: [:index, :create]
+  end
+
+  resources :posts
+  resources :reposts
   resources :dashboard, only: :index
   root "home#index"
   get "/login", to: "home#login"

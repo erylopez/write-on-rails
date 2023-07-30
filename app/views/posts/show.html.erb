@@ -1,0 +1,20 @@
+<div class="p-12">
+  <div class="mb-3">
+    Title: <%= @post.title %>
+  </div>
+  <div class="mb-3">
+    Notion Id: <%= @post.notion_id %>
+  </div>
+  <div class="mb-3">
+    Dev To: <%= @post.devto_id %>
+  </div>
+  <div class="mb-3">
+    Hashnode To: <%= @post.hashnode_id %>
+  </div>
+
+  <div class="mb-3">
+    <%= link_to "Re-post in hashnode", reposts_path(post_id: @post.id, platform: "hashnode"), data: { turbo_method: :post } %>
+    <br>
+    <%= link_to "Re-post in hashnode", reposts_path(post_id: @post.id, platform: "hashnode"), data: { turbo_method: :post } %>
+  </div>
+</div>

@@ -28,7 +28,7 @@ class OnboardingController < ApplicationController
   def complete_step_3
     if update_publishing_platforms
       current_user.complete_step_3
-      redirect_to dashboard_index_path
+      redirect_to notion_sync_pages_path
     else
       render :step_3
     end
