@@ -15,6 +15,14 @@ class User < ApplicationRecord
     end
   end
 
+  def hashnode_ready?
+    hashnode_access_token.present? && hashnode_username.present?
+  end
+
+  def devto_ready?
+    devto_api_key.present?
+  end
+
   def attributes_from_keys(*keys)
     keys.inject({}) do |hash_to_return, key|
       binding.pry
