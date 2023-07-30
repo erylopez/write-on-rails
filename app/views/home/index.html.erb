@@ -1,1 +1,38 @@
-<h1 class="mt-6 mb-12 text-center font-sans text-5xl">Write on <span class="text-red-600">Rails</span>!</h1>
+<section class="bg-white dark:bg-gray-900 mt-16">
+  <div class="pt-12 pb-8 px-4 mx-auto max-w-screen-xl lg:py-16 flex">
+    <div class="p-8 md:p-12 mb-4">
+      <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-6">How to quickly deploy a static Blog</h1>
+      <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-8">Static websites are now used to bootstrap lots of websites and are becoming the basis for a variety of tools that even influence both web designers and developers.</p>
+      <button class="button-default group group-hover:from-purple-600 group-hover:to-red-500">
+        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-base">
+          Getting Started
+        </span>
+      </button>
+    </div>
+    <div class="w-full">
+      <img src="hero-engage.svg" class=" h-[400px] w-full rounded-xl" alt="">
+    </div>
+  </div>
+</section>
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+<%# END JUMBOTRON %>
+<%# LEADERBOARD %>
+<div class="py-4 flex flex-col align-middle items-center mb-12">
+  <div>
+    <h2 class="text-gray-900 dark:text-gray-50 text-xl font-bold mb-8">Leaderboard</h2>
+  </div>
+  <div class="flex gap-20">
+    <% 3.times do %>
+      <div>
+        <div class="relative">
+          <img data-tooltip-target="tooltip-jese" class="w-24 h-24 p-1 rounded-full ring-2 ring-gray-50 dark:ring-gray-500" src="https://flowbite.com/docs/images/people/profile-picture-3.jpg" alt="Medium avatar">
+          <div class="absolute bg-purple-700 h-8 w-8 rounded-full flex align-middle items-center inset-x-0 -bottom-[15px] m-auto">
+            <span class="w-full text-center text-white text-xl font-bold">1</span>
+          </div>
+        </div>
+        <div>holi</div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%# END LEADERBOARD %>
