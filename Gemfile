@@ -13,6 +13,14 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 gem "vite_rails"
+gem "devise"
+gem "omniauth-github", "~> 2.0.0"
+gem "omniauth-rails_csrf_protection"
+gem "pry-rails"
+gem "httparty"
+gem "notion-ruby-client"
+gem "notion_to_md"
+gem "state_machines-activerecord"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
