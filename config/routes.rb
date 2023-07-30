@@ -31,5 +31,4 @@ Rails.application.routes.draw do
   get "/onboarding/step3", to: "home#onboarding_step3"
   get "/onboarding/step4", to: "home#onboarding_step4"
   get "/posts/post1", to: "home#post1"
-  get "/dashboard", to: "home#dashboard"
 end

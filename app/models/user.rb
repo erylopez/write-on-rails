@@ -22,4 +22,11 @@ class User < ApplicationRecord
   def devto_ready?
     devto_api_key.present?
   end
+
+  def attributes_from_keys(*keys)
+    keys.inject({}) do |hash_to_return, key|
+      binding.pry
+      hash_to_return.merge(key => send(key))
+    end
+  end
 end
