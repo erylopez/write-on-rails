@@ -1,0 +1,91 @@
+<div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800">
+  <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
+    Expand your reach
+  </h5>
+  <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Link your account with other integrated apps and share your content across all linked platforms!</p>
+  <%= form_for current_user, url: complete_step_3_onboarding_index_path, method: :get do |f| %>
+    <ul class="my-4 space-y-3">
+      <% if current_user.devto_api_key.blank? %>
+        <li class="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+          <div class="flex items-center text-base font-bold text-gray-900 dark:text-gray-300 mb-3 ">
+            <img src="/devto.png" alt="writing photo" class="w-6 h-6">
+            <span class="flex-1 ml-2 whitespace-nowrap">Dev.to</span>
+            <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-800 dark:text-gray-400">Popular</span>
+          </div>
+          <div class="relative w-full ">
+            <%= f.text_field :devto_api_key, placeholder: "Dev.to key", class: "block mb-2 w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+            <a href="https://dev.to/settings/extensions/#api_secret_description" target="_blank" class="font-medium text-blue-600 dark:text-blue-400 hover:underline">Get the key</a>
+          </div>
+        </li>
+      <% else %>
+        <li>
+          <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
+            <img src="/devto.png" alt="writing photo" class="w-6 h-6">
+            <span class="flex-1 ml-3 whitespace-nowrap">Dev.to</span>
+            <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </div>
+        </li>
+      <% end %>
+      <% if current_user.hashnode_access_token.blank? && current_user.hashnode_username.blank? %>
+        <li class="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+          <div class="flex items-center text-base font-bold text-gray-900 dark:text-gray-300 mb-3 ">
+            <img src="/hashnode.png" alt="writing photo" class="w-6 h-6">
+            <span class="flex-1 ml-2 whitespace-nowrap">Hashnode</span>
+          </div>
+          <div class="relative w-full mb-3">
+            <%= f.text_field :hashnode_access_token, placeholder: "Hashnode Token", class: "block w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+            <a href="https://hashnode.com/settings/developer" target="_blank" class="font-medium text-blue-600 dark:text-blue-400 hover:underline">Get the key</a>
+          </div>
+          <div class="relative w-full">
+            <%= f.text_field :hashnode_username, placeholder: "Hashnode username", class: "block w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+          </div>
+        </li>
+      <% else %>
+        <li>
+          <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
+            <img src="/hashnode.png" alt="writing photo" class="w-6 h-6">
+            <span class="flex-1 ml-3 whitespace-nowrap">Hashnode</span>
+            <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </div>
+        </li>
+      <% end %>
+      <li class="grayscale">
+        <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
+          <img src="/twitter.png" alt="writing photo" class="w-6 h-6">
+          <span class="flex-1 ml-3 whitespace-nowrap">Twitter</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Coming soon!</span>
+        </div>
+      </li>
+      <li class="grayscale">
+        <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
+          <img src="/linkedin.png" alt="writing photo" class="w-6 h-6">
+          <span class="flex-1 ml-3 whitespace-nowrap">Linkedin</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Coming soon!</span>
+        </div>
+      </li>
+      <li class="grayscale">
+        <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
+          <img src="/medium.png" alt="writing photo" class="w-6 h-6">
+          <span class="flex-1 ml-3 whitespace-nowrap">Medium</span>
+          <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Coming soon!</span>
+        </div>
+      </li>
+    </ul>
+    <% if current_user.hashnode_access_token.blank? || current_user.devto_api_key.blank? %>
+      <button type="submit" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mr-2 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-gray-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Continue
+      </button>
+    <% end %>
+  <% end %>
+</div>
