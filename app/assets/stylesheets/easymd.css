@@ -1,0 +1,10 @@
+
+#markdown.editor-toolbar.fullscreen {
+  top: 100px !important;
+}
+#markdown.editor-preview-side, .EasyMDEContainer .CodeMirror-fullscreen {
+  top: 150px;
+}
+.EasyMDEContainer .CodeMirror-fullscreen .CodeMirror-scroll {
+  height: calc(100% - 150px);
+}

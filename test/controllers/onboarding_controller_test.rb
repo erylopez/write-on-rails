@@ -2,7 +2,7 @@ require "test_helper"
 
 class OnboardingControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    user = users(:one)
+    user = users(:onboarding_step_1)
     sign_in user
 
     get onboarding_index_url
