@@ -5,33 +5,27 @@
       <%= f.text_field :title, class: "lock w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
     </div>
   </div>
-  
   <%= f.text_area :md_content %>
-
   <div class="mt-6 flex items-center justify-end gap-x-6">
     <%= f.submit "Create Post", class: "rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
   </div>
 <% end %>
-
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
 <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
 <script>
   const easyMDE = new EasyMDE({ element: document.getElementById("post_md_content"), renderingConfig: { codeSyntaxHighlighting: true, singleLineBreaks: false}});
   easyMDE.value("# This is some markdown text\n\nAnd this is a code block\n\n```var simplemde = undefined;```\n\n")
 </script>
-
 <style>
   .editor-toolbar.fullscreen {
-    top: 100px !important;
+    top: 208px !important;
   }
   .editor-preview-side, .EasyMDEContainer .CodeMirror-fullscreen {
-    top: 150px;
+    top: 258px;
   }
   .EasyMDEContainer .CodeMirror-fullscreen .CodeMirror-scroll {
-    height: calc(100% - 150px);
+    height: calc(100% - 258px);
   }
 </style>

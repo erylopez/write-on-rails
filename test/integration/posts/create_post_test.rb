@@ -36,4 +36,18 @@ class Post::CreatePostTest < ActionDispatch::IntegrationTest
 
     assert_dom "h2#title", "My first post"
   end
+
+  test "cannot create a post with invalid data" do
+    get "/posts/new"
+
+    assert_dom "form[action=?]", "/posts"
+
+    assert_no_changes -> { Post.count } do
+      post "/posts", params: {post: {title: "", md_content: "This is a test post"}}
+    end
+
+    assert_response :unprocessable_entity
+
+    assert_dom "form[action=?]", "/posts"
+  end
 end
