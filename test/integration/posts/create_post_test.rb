@@ -34,7 +34,7 @@ class Post::CreatePostTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
 
-    assert_dom "h2#title", "My first post"
+    assert_dom "h5#title", "My first post"
   end
 
   test "cannot create a post with invalid data" do
