@@ -1,4 +1,6 @@
 class OnboardingController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     redirect_to_current_step and return
   end

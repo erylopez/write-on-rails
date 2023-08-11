@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer components {
+  /* markdown editor preview */
+  .editor-preview-full, .editor-preview-side{
+    @apply prose; max-width: 100vw;
+  }
+
   .button-default {
     @apply relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-gray-900 rounded-lg bg-gradient-to-br from-purple-600 to-red-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-500;
   }

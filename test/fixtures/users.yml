@@ -4,8 +4,36 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  email: fixture_one@email.com
+  encrypted_password: "somethinghere"
+  reset_password_token:
+  reset_password_sent_at:
+  remember_created_at:
+  provider: github
+  uid: '99999'
+  github_access_token: gho_randomstringsgoeshere12390159
+  notion_access_token: secret_randomstringsgoeshere12390159
+  notion_page_id: asdf1234-1234-1234-1234-123asd123asd123
+  onboarding_step: step_4
+  hashnode_access_token: asdf1234-1234-1234-1234-123randomstring123
+  devto_api_key: randomstringsgoeshere12390159
+  hashnode_username: hashy
+  hashnode_blog_handle: hashnode
+
+onboarding_step_1:
+  email: fixture_two@email.com
+  encrypted_password: "somethinghere1"
+  reset_password_token:
+  reset_password_sent_at:
+  remember_created_at:
+  provider: github
+  uid: '111111'
+  github_access_token: gho_randomstringsgoeshere12390159
+  notion_access_token: secret_randomstringsgoeshere12390159
+  notion_page_id: asdf1234-1234-1234-1234-123asd123asd123
+  onboarding_step: step_1
+  hashnode_access_token: asdf1234-1234-1234-1234-123randomstring123
+  devto_api_key: randomstringsgoeshere12390159
+  hashnode_username: hashy
+  hashnode_blog_handle: hashnode
