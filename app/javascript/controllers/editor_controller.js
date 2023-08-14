@@ -9,7 +9,7 @@ export default class extends Controller {
   static targets = ["field"]
 
   onChange() {
-    console.log(this.editor.getMarkdown())
+    this.fieldTarget.value = this.editor.getMarkdown();
   }
 
   connect() {
