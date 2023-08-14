@@ -3,7 +3,15 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-import { registerControllers } from 'stimulus-vite-helpers'
 
-const controllers = import.meta.globEager('./**/*_controller.js')
-registerControllers(application, controllers)
+import EditorController from "./editor_controller"
+application.register("editor", EditorController)
+
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import MarkdownViewerController from "./markdown_viewer_controller"
+application.register("markdown-viewer", MarkdownViewerController)
+
+import OnboardingStep1SelectController from "./onboarding_step_1_select_controller"
+application.register("onboarding-step-1-select", OnboardingStep1SelectController)
