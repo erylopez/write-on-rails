@@ -59,4 +59,29 @@ module ApplicationHelper
       }
     ]
   end
+
+  def popularity_statistics
+    [
+      {
+        name: "Followers",
+        count: "0",
+        icon: "user-group"
+      },
+      {
+        name: "Posts",
+        count: current_user.posts.count,
+        icon: "document-duplicate"
+      },
+      {
+        name: "Likes",
+        count: "0",
+        icon: "heart"
+      },
+      {
+        name: "Comments",
+        count: "0",
+        icon: "chat-bubble-bottom-center"
+      }
+    ]
+  end
 end
