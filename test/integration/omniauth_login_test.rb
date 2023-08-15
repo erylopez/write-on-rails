@@ -13,6 +13,7 @@ class OmniauthLoginTest < ActionDispatch::IntegrationTest
       post omniauth_url
       assert_redirected_to user_github_omniauth_callback_url
       follow_redirect!
+      assert User.last.name.present?
     end
 
     assert_redirected_to root_url
