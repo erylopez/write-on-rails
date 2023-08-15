@@ -1,0 +1,20 @@
+@media (prefers-color-scheme: dark) {
+  .ProseMirror{
+    color: white;
+  }
+  .toastui-editor-contents p, h1, h2, h3, h4, h5{
+    color: white !important;
+  }
+  .toastui-editor-md-code, .toastui-editor-md-code-block-line-background, pre{
+    background-color: #1f2937 !important;
+  }
+  pre code{
+    color: white !important;
+  }
+  p code{
+    background-color: #1f2937 !important;
+  }
+  .token.operator{
+    background-color: transparent !important;
+  }
+}
