@@ -38,4 +38,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "minitest-reporters"
+  gem "mocha"
+  gem "vcr"
+  gem "webmock"
+  gem "simplecov", require: false
 end

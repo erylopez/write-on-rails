@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"mutation createStory($input: CreateStoryInput!){         createStory(input:
+        $input) {           code           success           message           post
+        {             _id             cuid             slug           }         }       }","variables":{"input":{"isPartOfPublication":{"publicationId":"64c578d95a0f2b614f315c59"},"title":"Post
+        from fixtures","contentMarkdown":"This is a post **from fixtures**","tags":[{"_id":"56744723958ef13879b9549b","slug":"testing","name":"Testing"}]}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - my-secret-authorization-code
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '198'
+      Gcdn-Cache:
+      - PASS
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Expose-Headers:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      X-Powered-By:
+      - Stellate
+      Etag:
+      - W/"103-CmO419EMtrvOvD6vKanHy4TkElg"
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      Vary:
+      - Authorization, Accept-Encoding
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      X-Timer:
+      - S1692137356.784048,VS0,VE2215
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Cache-Hits:
+      - '0'
+      X-Cache:
+      - MISS
+      X-Served-By:
+      - cache-eze2230069-EZE
+      Content-Type:
+      - application/json; charset=utf-8
+      Via:
+      - 1.1 varnish
+      Date:
+      - Tue, 15 Aug 2023 22:09:17 GMT
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"createStory":{"code":200,"success":true,"message":"Article
+        created successfully","post":{"_id":"64dbf78d4429385b92802339","cuid":"cllcuw5ic0em72lnv8wdqbt4y","slug":"post-from-fixtures"}}}}'
+  recorded_at: Tue, 15 Aug 2023 22:09:17 GMT
+recorded_with: VCR 6.2.0
