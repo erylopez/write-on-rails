@@ -43,3 +43,4 @@ node_modules
 *.local
 test/reports/*
 .DS_Store
+coverage
