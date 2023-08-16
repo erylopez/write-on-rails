@@ -5,8 +5,8 @@ class Hashnode::GetPublications < Hashnode::Base
   end
 
   def call
-    return false if @authorization_code.blank?
-    return false if @username.blank?
+    return if @authorization_code.blank?
+    return if @username.blank?
 
     query = %{
       {

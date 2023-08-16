@@ -1,4 +1,5 @@
 class Hashnode::Base
-  def initialize
+  def get_etag(title:, markdown:)
+    Base64.encode64(title + markdown).strip
   end
 end

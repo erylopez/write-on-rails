@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_15_222602) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_223432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_15_222602) do
     t.string "hashnode_slug"
     t.string "devto_slug"
     t.string "devto_url"
+    t.string "hashnode_url"
+    t.string "hashnode_cover_image"
+    t.string "hashnode_reactions"
+    t.string "hashnode_views"
+    t.string "hashnode_draft"
+    t.string "hashnode_reply_count"
+    t.string "hashnode_response_count"
+    t.string "hashnode_etag"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -55,6 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_15_222602) do
     t.string "github_company"
     t.string "github_location"
     t.string "github_bio"
+    t.string "hashnode_publication_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

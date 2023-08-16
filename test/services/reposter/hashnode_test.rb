@@ -11,6 +11,7 @@ class Reposter::HashnodeTest < ActiveSupport::TestCase
     response = Reposter::Hashnode.new(post: post, user: user).call
     assert response
     assert post.reload.hashnode_id.present?
+    assert user.hashnode_publication_id.present?
     VCR.eject_cassette(name: "hashnode/publications")
     VCR.eject_cassette(name: "hashnode/create_post")
   end
