@@ -3,7 +3,7 @@ require "test_helper"
 class Post::EditPostTest < ActionDispatch::IntegrationTest
   def setup
     sign_in users(:one)
-    @post = users(:one).posts.create(title: "My first post", md_content: "This is a test post")
+    @post = users(:one).posts.create(title: "My first post", md_content: "This is a test post", devto_id: "123456")
   end
 
   test "can navigate directly to the posts#edit page" do
@@ -27,7 +27,9 @@ class Post::EditPostTest < ActionDispatch::IntegrationTest
     assert_dom "form[action=?]", "/posts/#{@post.id}"
 
     assert_no_changes -> { Post.count } do
-      patch "/posts/#{@post.id}", params: {post: {title: "My first post edited", md_content: "This is a test post"}}
+      VCR.use_cassette("devto/update_post") do
+        patch "/posts/#{@post.id}", params: {post: {title: "My first post edited", md_content: "This is a test post"}}
+      end
     end
 
     assert_redirected_to "/posts/#{@post.id}"
