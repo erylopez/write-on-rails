@@ -92,4 +92,24 @@ module ApplicationHelper
       {content: current_user.email, icon: "envelope"}
     ]
   end
+
+  def post_platforms(post)
+    [
+      {
+        name: "Hashnode",
+        id: post.hashnode_id,
+        url: post.hashnode_id
+      },
+      {
+        name: "Dev.to",
+        id: post.devto_id,
+        url: post.devto_url
+      },
+      {
+        name: "Medium",
+        id: post.medium_id,
+        url: post.medium_id
+      }
+    ]
+  end
 end
