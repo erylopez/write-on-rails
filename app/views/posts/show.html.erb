@@ -44,7 +44,7 @@
               <div id="dropdownDotsHorizontal" class="z-10 hidden border bg-white border-gray-300 rounded-lg shadow w-44 dark:bg-gray-700 dark:border-gray-600">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconHorizontalButton">
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit on Notion</a>
+                    <%= link_to "Edit Post", edit_post_path(@post), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                   </li>
                   <li>
                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove Article</a>
