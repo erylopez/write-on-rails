@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://dev.to/api/articles
+    body:
+      encoding: UTF-8
+      string: '{"article":{"title":"test","published":true,"body_markdown":"test","tags":"rails,
+        ruby, rubyonrails"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Api-Key:
+      - devto_secret_api_key
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Location:
+      - https://dev.to/erylopez/test-5f26
+      Content-Type:
+      - application/json; charset=utf-8
+      Warning:
+      - 299 - This endpoint is part of the V0 (beta) API. To start using the V1 endpoints
+        add the `Accept` header and set it to `application/vnd.forem.api-v1+json`.
+        Visit https://developers.forem.com/api for more information.
+      Etag:
+      - W/"aac4a98817fcd401e63603e9e71551d8"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Security-Policy:
+      - ''
+      X-Request-Id:
+      - 408fa99b-0112-45fb-9424-c5ad4dc44a86
+      X-Runtime:
+      - '0.176114'
+      Via:
+      - 1.1 vegur, 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - "*"
+      Date:
+      - Wed, 16 Aug 2023 21:56:17 GMT
+      X-Served-By:
+      - cache-den8281-DEN, cache-eze2230034-EZE
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1692222977.834680,VS0,VE738
+      Vary:
+      - Accept-Encoding, Origin, X-Loggedin
+      Strict-Transport-Security:
+      - max-age=31557600
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"type_of":"article","id":1570607,"title":"test","description":"test","readable_publish_date":"Aug
+        16","slug":"test-5f26","path":"/erylopez/test-5f26","url":"https://dev.to/erylopez/test-5f26","comments_count":0,"public_reactions_count":0,"collection_id":null,"published_timestamp":"2023-08-16T21:56:17Z","positive_reactions_count":0,"cover_image":null,"social_image":"https://dev.to/social_previews/article/1570607.png","canonical_url":"https://dev.to/erylopez/test-5f26","created_at":"2023-08-16T21:56:17Z","edited_at":null,"crossposted_at":null,"published_at":"2023-08-16T21:56:17Z","last_comment_at":"2023-08-16T21:56:17Z","reading_time_minutes":1,"tag_list":"","tags":[],"body_html":"\u003cp\u003etest\u003c/p\u003e\n\n","body_markdown":"test","user":{"name":"Ery
+        Lopez","username":"erylopez","twitter_username":null,"github_username":"erylopez","user_id":1129628,"website_url":null,"profile_image":"https://res.cloudinary.com/practicaldev/image/fetch/s--J0V2n5FM--/c_fill,f_auto,fl_progressive,h_640,q_auto,w_640/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/1129628/a87e61e2-61c3-42ac-a723-6820a3982c47.jpeg","profile_image_90":"https://res.cloudinary.com/practicaldev/image/fetch/s--0mjwBmvY--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/1129628/a87e61e2-61c3-42ac-a723-6820a3982c47.jpeg"}}'
+  recorded_at: Wed, 16 Aug 2023 21:56:17 GMT
+recorded_with: VCR 6.2.0

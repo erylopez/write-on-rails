@@ -11,7 +11,9 @@ class RepostsController < ApplicationController
       end
       repost_to_hashnode and return
     when "devto"
-
+      if @post.devto_id.present?
+        redirect_to dashboard_index_path and return
+      end
       repost_to_devto and return
     end
   end
@@ -29,8 +31,7 @@ class RepostsController < ApplicationController
 
   def repost_to_devto
     if current_user.devto_ready?
-      # Reposter::Devto.new(post: @post, user: current_user).call
-      @post.update(devto_id: 1570513)
+      Reposter::Devto.new(post: @post, user: current_user).call
       render turbo_stream:
         turbo_stream.replace("integrations",
           partial: "common/integrations_box",
