@@ -22,25 +22,18 @@
             </div>
           </div>
           <div class="col-span-1 flex justify-end gap-4">
-            <div>
-              <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                Publish in
-                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg></button>
-              <div id="dropdown" class="z-10 hidden border border-gray-300 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:border-gray-600">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Medium</a>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Twitter</a>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Linkedin</a>
-                  </li>
-                </ul>
-              </div>
+            <div id="dropdown" class="z-10 hidden border border-gray-300 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:border-gray-600">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Medium</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Twitter</a>
+                </li>
+                <li>
+                  <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Linkedin</a>
+                </li>
+              </ul>
             </div>
             <div>
               <button id="dropdownMenuIconHorizontalButton" data-dropdown-toggle="dropdownDotsHorizontal" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-600" type="button">
@@ -51,7 +44,7 @@
               <div id="dropdownDotsHorizontal" class="z-10 hidden border bg-white border-gray-300 rounded-lg shadow w-44 dark:bg-gray-700 dark:border-gray-600">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconHorizontalButton">
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit on Notion</a>
+                    <%= link_to "Edit Post", edit_post_path(@post), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                   </li>
                   <li>
                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Remove Article</a>
@@ -86,18 +79,22 @@
                 <%= render_badge(text: "Published", color: "green") %>
               </div>
             </li>
-            <% ["dev.to", "hashnode.com"].each do |platform| %>
-              <li class="mb-5 grid grid-cols-5 gap-8">
-                <div class="flex items-center gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
-                  </svg>
-                  <span>View on</span>
-                </div>
-                <div>
-                  <a href="#" class="text-gray-800 dark:text-gray-300"> <%= platform %> </a>
-                </div>
-              </li>
+            <% post_platforms(@post).each do |platform| %>
+              <% if platform[:id] %>
+                <li class="mb-5 grid grid-cols-5 gap-8">
+                  <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                    </svg>
+                    <span>View on</span>
+                  </div>
+                  <div>
+                    <%= link_to platform[:url], class: "text-gray-800 dark:text-gray-300", target: "_blank" do%>
+                      <%= platform[:name] %>
+                    <% end %>
+                  </div>
+                </li>
+              <% end %>
             <% end %>
           </ul>
         </div>
@@ -122,7 +119,9 @@
       </div>
     </div>
     <div class="col-span-1">
-      <%= render partial: 'common/integrations_box' %>
+      <%= turbo_frame_tag "integrations" do %>
+        <%= render partial: 'common/integrations_box', locals: {post: @post} %>
+      <% end %>
     </div>
   </div>
 </div>

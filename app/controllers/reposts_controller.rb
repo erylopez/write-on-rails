@@ -14,7 +14,6 @@ class RepostsController < ApplicationController
       if @post.devto_id.present?
         redirect_to dashboard_index_path and return
       end
-
       repost_to_devto and return
     end
   end
@@ -33,7 +32,10 @@ class RepostsController < ApplicationController
   def repost_to_devto
     if current_user.devto_ready?
       Reposter::Devto.new(post: @post, user: current_user).call
-      redirect_to dashboard_index_path, notice: "Your post has been reposted to Dev.to." and return
+      render turbo_stream:
+        turbo_stream.replace("integrations",
+          partial: "common/integrations_box",
+          locals: {post: @post}) and return
     else
       redirect_to dashboard_index_path, alert: "You need to connect your Dev.to account first." and return
     end
