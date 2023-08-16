@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "Post was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: "Post was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
