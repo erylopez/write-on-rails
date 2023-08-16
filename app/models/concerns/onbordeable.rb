@@ -32,19 +32,4 @@ module Onbordeable
   def has_selected_a_writing_platform?
     notion_page_id.present?
   end
-
-  def writing_platform_is_connected?
-    true # optional atm
-  end
-
-  def next_step
-    case onboarding_step
-    when "step_1"
-      complete_step_1
-    when "step_2"
-      complete_step_2
-    when "step_3"
-      complete_step_3
-    end
-  end
 end

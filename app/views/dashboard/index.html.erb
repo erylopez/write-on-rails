@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+<% end %>
 <div class="flex flex-row gap-4">
   <div class="w-full grid grid-cols-4 gap-4">
     <% popularity_statistics.each do |stadistic|%>

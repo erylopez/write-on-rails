@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.notion.com/v1/oauth/token
+    body:
+      encoding: UTF-8
+      string: grant_type=authorization_code&code=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fusers%2Fauth%2Fnotion%2Fcallback
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic basic-hash-here
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 15 Aug 2023 22:41:37 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Etag:
+      - W/"1e5-RhBcu+JSwPRhgiKjt2tLijuTD6k"
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=iRDjqB01C6fsbwzR.GnhQ6iLp151MD9J37esyYDx8j0-1692139297-0-AXlzn/gFEjwJVbULJCJO/Ds++eroAQTJ1Lf8v1Ysq0C7dIboGA3nJO5dPdpaglXlLB3pnQ5BmVeVPAPeQDcmz2I=;
+        path=/; expires=Tue, 15-Aug-23 23:11:37 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7f74f2290c651e98-EZE
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"secret_token","token_type":"bearer","bot_id":"75814f44-d9c9-4568-bc61-aa93c0205bad","workspace_name":"Ksix","workspace_icon":"https://lh3.googleusercontent.com/a/AAcHTtfnwol4c1thRK1z60SG4dB5ytTNsKt8AcJvjN-nH62ZqA=s100","workspace_id":"adf141e8-e93b-4a6b-a4b6-49186c5aa631","owner":{"type":"user","user":{"object":"user","id":"6f86ce7c-d058-4fb1-8d27-8c031429b03f"}},"duplicated_template_id":"cedf0483-3e03-42a5-a8b6-4bdd754baa70"}'
+  recorded_at: Tue, 15 Aug 2023 22:41:36 GMT
+recorded_with: VCR 6.2.0

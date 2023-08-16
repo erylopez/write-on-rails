@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.notion.com/v1/oauth/token
+    body:
+      encoding: UTF-8
+      string: grant_type=authorization_code&code={code}&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fusers%2Fauth%2Fnotion%2Fcallback
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic {authorization}
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 15 Aug 2023 22:37:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '84'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Etag:
+      - W/"54-fLEY9L6mIApcAJeVX8VUoMyBYu0"
+      Vary:
+      - Accept-Encoding
+      Cf-Cache-Status:
+      - DYNAMIC
+      Set-Cookie:
+      - __cf_bm=ZKAL4broCqrCSxMKPy7zLOa6C7nv_DS25JSBN6HXjGc-1692139068-0-AaY/Rn1JJ6Y2VSCvNviZ7wpHv/WyCt2TQDChgaP5eCnKgGlDlHv1V7Lk6SnDDSOo/z+epDzNGETgREIjBekLTHg=;
+        path=/; expires=Tue, 15-Aug-23 23:07:48 GMT; domain=.notion.com; HttpOnly;
+        Secure; SameSite=None
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 7f74ec96db5a1f03-EZE
+    body:
+      encoding: UTF-8
+      string: '{"error":"invalid_grant","error_description":"Invalid code: this code
+        has expired."}'
+  recorded_at: Tue, 15 Aug 2023 22:37:48 GMT
+recorded_with: VCR 6.2.0

@@ -13,13 +13,16 @@ one:
   provider: github
   uid: '99999'
   github_access_token: gho_randomstringsgoeshere12390159
-  notion_access_token: secret_randomstringsgoeshere12390159
-  notion_page_id: asdf1234-1234-1234-1234-123asd123asd123
+  notion_access_token: secret_token
+  notion_page_id: f3399730-1572-492d-b789-34cea229c502
   onboarding_step: step_4
   hashnode_access_token: asdf1234-1234-1234-1234-123randomstring123
   devto_api_key: randomstringsgoeshere12390159
   hashnode_username: hashy
   hashnode_blog_handle: hashnode
+empty:
+  email: fixture_empty@email.com
+  encrypted_password: "somethinghere"
 
 onboarding_step_1:
   email: fixture_two@email.com

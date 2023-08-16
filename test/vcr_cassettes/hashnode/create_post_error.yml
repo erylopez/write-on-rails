@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"mutation createStory($input: CreateStoryInput!){         createStory(input:
+        $input) {           code           success           message           post
+        {             _id             cuid             slug           }         }       }","variables":{"input":{"isPartOfPublication":{"publicationId":"64c578d95a0f2b614f315c59"},"title":"Post
+        from fixtures","contentMarkdown":"This is a post **from fixtures**","tags":[{"_id":"56744723958ef13879b9549b","slug":"testing","name":"Testing"}]}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - invalid_code
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '166'
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Expose-Headers:
+      - "*"
+      Gcdn-Cache:
+      - PASS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Powered-By:
+      - Stellate
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      Vary:
+      - Authorization, Accept-Encoding
+      Etag:
+      - W/"a7-/Z5MdTxkKZyY0jsBTHO8F6l0a9I"
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      X-Timer:
+      - S1692153912.593267,VS0,VE1146
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      X-Cache-Hits:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Cache:
+      - MISS
+      X-Served-By:
+      - cache-eze2230056-EZE
+      Content-Type:
+      - application/json; charset=utf-8
+      Via:
+      - 1.1 varnish
+      Date:
+      - Wed, 16 Aug 2023 02:45:12 GMT
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"errors":[{"message":"Authentication key not valid","locations":[{"line":2,"column":3}],"path":["createStory"],"extensions":{"code":"UNAUTHENTICATED"}}],"data":null}'
+  recorded_at: Wed, 16 Aug 2023 02:45:12 GMT
+recorded_with: VCR 6.2.0
