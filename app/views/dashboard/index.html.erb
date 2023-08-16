@@ -6,18 +6,26 @@
 <% end %>
 <div class="flex flex-row gap-4">
   <div class="w-full grid grid-cols-4 gap-4">
-    <% popularity_statistics.each do |stadistic|%>
-      <div class="h-auto py-8 color-base border border-gray-200 dark:border-gray-700 flex gap-4 items-center justify-center rounded-lg">
-        <%= embedded_svg(stadistic[:icon], class:"w-12 h-12")%>
-        <div>
-          <h5 class="text-2xl font-bold"><%= stadistic[:count] %></h5>
-          <span><%= stadistic[:name] %></span>
-        </div>
-      </div>
-    <% end %>
     <div class="col-span-3">
-      <% current_user.posts.each do |post| %>
-        <%= render partial: 'posts/post_card', locals: {post: post} %>
-      <% end %>
+      <div class="flex gap-4 w-full mb-4">
+        <% popularity_statistics.each do |stadistic|%>
+          <div class="h-auto w-full py-8 color-base border border-gray-200 dark:border-gray-700 flex gap-4 items-center justify-center rounded-lg">
+            <%= embedded_svg(stadistic[:icon], class:"w-12 h-12")%>
+            <div>
+              <h5 class="text-2xl font-bold"><%= stadistic[:count] %></h5>
+              <span><%= stadistic[:name] %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-span-3">
+        <h2 class="text-gray-900 dark:text-gray-300 text-2xl font-bold mb-4">Top posts</h2>
+        <% current_user.posts.each do |post| %>
+          <%= render partial: 'posts/post_card', locals: {post: post} %>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <%= render partial: 'common/integrations_box' %>
     </div>
   </div>

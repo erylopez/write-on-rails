@@ -32,4 +32,5 @@
   .active_nav{
     @apply text-gray-800 border-b-2 border-purple-600 rounded-t-lg dark:text-gray-300 dark:border-purple-500;
   }
+
 }

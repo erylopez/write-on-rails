@@ -84,4 +84,12 @@ module ApplicationHelper
       }
     ]
   end
+
+  def github_data
+    [
+      {content: current_user.github_company, icon: "company"},
+      {content: current_user.github_location, icon: "location"},
+      {content: current_user.email, icon: "envelope"}
+    ]
+  end
 end
