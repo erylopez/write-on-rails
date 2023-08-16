@@ -20,9 +20,15 @@ one:
   devto_api_key: randomstringsgoeshere12390159
   hashnode_username: hashy
   hashnode_blog_handle: hashnode
+  github_bio: bio
+  github_company: company
+  github_location: somewhere
+  github_avatar: https://avatars.githubusercontent.com/u/854971
+  nickname: something
 empty:
   email: fixture_empty@email.com
   encrypted_password: "somethinghere"
+  github_avatar: https://avatars.githubusercontent.com/u/854971
 
 onboarding_step_1:
   email: fixture_two@email.com
@@ -40,3 +46,8 @@ onboarding_step_1:
   devto_api_key: randomstringsgoeshere12390159
   hashnode_username: hashy
   hashnode_blog_handle: hashnode
+  github_bio: bio
+  github_company: company
+  github_location: somewhere
+  github_avatar: https://avatars.githubusercontent.com/u/854971
+  nickname: something

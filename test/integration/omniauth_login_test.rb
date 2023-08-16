@@ -52,7 +52,15 @@ class OmniauthLoginTest < ActionDispatch::IntegrationTest
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
       provider: "github",
       uid: nil,
-      info: {email: "some@email.com"},
+      info: {email: "some@email.com",
+             name: "John",
+             image: "https://avatars.githubusercontent.com/u/7799551?v=4",
+             nickname: "john123"},
+      extra: {raw_info: {
+        company: nil,
+        location: nil,
+        bio: nil
+      }},
       credentials: {token: "randomtoken123456"}
     })
     get root_url
