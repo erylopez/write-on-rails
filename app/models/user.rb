@@ -29,4 +29,26 @@ class User < ApplicationRecord
   def devto_ready?
     devto_api_key.present?
   end
+
+  def get_hashnode_publication_id
+    hashnode_publication_id || sync_publication_id_from_hashnode
+  end
+
+  def sync_publication_id_from_hashnode
+    publications = Hashnode::GetPublications.new(
+      authorization_code: hashnode_access_token, username: hashnode_username
+    ).call
+    publication_id = publications&.dig("data", "user", "publication", "_id")
+
+    return false unless publication_id
+
+    update(
+      hashnode_publication_id: publication_id,
+      hashnode_blog_handle: publications.dig("data", "user", "blogHandle")
+    )
+
+    hashnode_publication_id
+  rescue HTTParty::Error, SocketError, Errno::ECONNRESET, Errno::ETIMEDOUT
+    false
+  end
 end
