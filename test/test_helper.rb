@@ -22,5 +22,14 @@ class ActiveSupport::TestCase
   include Devise::Test::IntegrationHelpers
 
   parallelize(workers: :number_of_processors)
+
+  parallelize_setup do |worker|
+    SimpleCov.command_name "cov-#{worker}"
+  end
+
+  parallelize_teardown do |worker|
+    SimpleCov.result
+  end
+
   fixtures :all
 end

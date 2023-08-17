@@ -9,46 +9,22 @@ class Hashnode::SyncPosts < Hashnode::Base
     return if @authorization_code.blank?
     return if @username.blank?
 
-    query = %{
-      {
-        user(username: "#{@username}") {
-          blogHandle
-          publicationDomain
-          publication {
-            posts {
-              coverImage
-              followersCount
-              cuid
-              slug
-              title
-              popularity
-              totalReactions
-              partOfPublication
-              isActive
-              replyCount
-              responseCount
-              dateAdded
-              brief
-              dateUpdated
-              dateFeatured
-              contentMarkdown
-              numUniqueUsersWhoReacted
-              readTime
-              views
-            }
-          }
-        }
-      }
-    }
-
     headers = {"Content-Type": "application/json", Authorization: @authorization_code}
+    page = 0
 
-    response = HTTParty.post("https://api.hashnode.com", body: {query: query}.to_json, headers: headers)
-    base_post_url = get_base_post_url(
+    response = HTTParty.post("https://api.hashnode.com", body: {query: query(page:)}.to_json, headers: headers)
+    posts = response.dig("data", "user", "publication", "posts")
+
+    while response.dig("data", "user", "publication", "posts").any?
+      page += 1
+      response = HTTParty.post("https://api.hashnode.com", body: {query: query(page:)}.to_json, headers: headers)
+      posts += response.dig("data", "user", "publication", "posts")
+    end
+
+    base_post_url ||= get_base_post_url(
       blog_handle: response.dig("data", "user", "blogHandle"),
       publication_domain: response.dig("data", "user", "publicationDomain")
     )
-    posts = response.dig("data", "user", "publication", "posts")
 
     posts.each do |post|
       our_post = Post.where(hashnode_id: post.dig("cuid"), user_id: @user.id).first_or_create do |new_post|
@@ -83,5 +59,39 @@ class Hashnode::SyncPosts < Hashnode::Base
     end
 
     response
+  end
+
+  def query(page: 0)
+    %{
+      {
+        user(username: "#{@username}") {
+          blogHandle
+          publicationDomain
+          publication {
+            posts(page: #{page}) {
+              coverImage
+              followersCount
+              cuid
+              slug
+              title
+              popularity
+              totalReactions
+              partOfPublication
+              isActive
+              replyCount
+              responseCount
+              dateAdded
+              brief
+              dateUpdated
+              dateFeatured
+              contentMarkdown
+              numUniqueUsersWhoReacted
+              readTime
+              views
+            }
+          }
+        }
+      }
+    }
   end
 end
