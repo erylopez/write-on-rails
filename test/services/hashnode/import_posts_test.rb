@@ -9,6 +9,7 @@ class ImportPostsTest < ActiveSupport::TestCase
         response = Hashnode::ImportPosts.new(user:).call
         assert_equal response.class, HTTParty::Response
         assert user.posts.last.hashnode_etag.present?
+        assert user.posts.last.hashnode_url.present?
       end
     end
   end

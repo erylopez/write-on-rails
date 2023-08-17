@@ -12,6 +12,8 @@ class Hashnode::ImportPosts < Hashnode::Base
     query = %{
       {
         user(username: "#{@username}") {
+          blogHandle
+          publicationDomain
           publication {
             posts {
               coverImage
@@ -42,7 +44,13 @@ class Hashnode::ImportPosts < Hashnode::Base
     headers = {"Content-Type": "application/json", Authorization: @authorization_code}
 
     response = HTTParty.post("https://api.hashnode.com", body: {query: query}.to_json, headers: headers)
-    response.dig("data", "user", "publication", "posts").each do |post|
+    base_post_url = get_base_post_url(
+      blog_handle: response.dig("data", "user", "blogHandle"),
+      publication_domain: response.dig("data", "user", "publicationDomain")
+    )
+    posts = response.dig("data", "user", "publication", "posts")
+
+    posts.each do |post|
       our_post = Post.where(hashnode_id: post.dig("cuid"), user_id: @user.id).first_or_create do |new_post|
         new_post.title = post.dig("title")
         new_post.md_content = post.dig("contentMarkdown")
@@ -53,17 +61,22 @@ class Hashnode::ImportPosts < Hashnode::Base
         new_post.hashnode_reply_count = post.dig("replyCount")
         new_post.hashnode_cover_image = post.dig("coverImage")
         new_post.hashnode_response_count = post.dig("responseCount")
+        new_post.hashnode_url = "#{base_post_url}/#{post.dig("slug")}"
         new_post.hashnode_etag = get_etag(title: post.dig("title"), markdown: post.dig("contentMarkdown"))
       end
 
       if our_post.hashnode_etag != get_etag(title: post.dig("title"), markdown: post.dig("contentMarkdown"))
         our_post.update(
+          title: post.dig("title"),
+          md_content: post.dig("contentMarkdown"),
+          hashnode_slug: post.dig("slug"),
           hashnode_views: post.dig("views"),
+          hashnode_draft: !post.dig("isActive"),
           hashnode_reactions: post.dig("totalReactions"),
           hashnode_reply_count: post.dig("replyCount"),
           hashnode_response_count: post.dig("responseCount"),
-          hashnode_draft: !post.dig("isActive"),
           hashnode_cover_image: post.dig("coverImage"),
+          hashnode_url: "#{base_post_url}/#{post.dig("slug")}",
           hashnode_etag: get_etag(title: post.dig("title"), markdown: post.dig("contentMarkdown"))
         )
       end
