@@ -9,8 +9,11 @@ module ApplicationHelper
     "<span class='#{tailwind_classes}'>#{text}</span>".html_safe
   end
 
-  def active_path(path)
-    current_page?(path) ? "active_nav" : ""
+  def active_path(controllers)
+    controller_action = "#{params[:controller]}/#{params[:action]}"
+    if controller_action.in?(controllers)
+      "active_nav"
+    end
   end
 
   def embedded_svg(filename, options = {})
@@ -34,26 +37,31 @@ module ApplicationHelper
       {
         name: "Dashboard",
         path: dashboard_index_path,
+        controllers: ["dashboard/index"],
         icon: "book-open"
       },
       {
         name: "Profile",
         path: profile_path,
+        controllers: ["home/profile"],
         icon: "user"
       },
       {
         name: "Posts",
         path: posts_path,
+        controllers: ["posts/index", "posts/show", "posts/edit"],
         icon: "document-duplicate"
       },
       {
         name: "New Post",
         path: new_post_path,
+        controllers: ["posts/new"],
         icon: "pencil-square"
       },
       {
         name: "Leaderboard",
         path: "#",
+        controllers: [],
         icon: "",
         inactive: true
       }
