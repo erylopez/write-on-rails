@@ -41,4 +41,40 @@ class SyncPostsTest < ActionDispatch::IntegrationTest
     post sync_posts_path(platform: "hashnode")
     assert_response :unprocessable_entity
   end
+
+  test "can navitate to dashboard page and find link for import posts from devto" do
+    get "/"
+    assert_redirected_to "/dashboard"
+    follow_redirect!
+
+    assert_response :success
+    assert_dom "a[href=?]", "/sync_posts?platform=devto"
+
+    VCR.use_cassette("devto/sync_posts") do
+      post "/sync_posts?platform=devto"
+    end
+    assert_redirected_to "/dashboard"
+    follow_redirect!
+    assert_response :success
+  end
+
+  test "can import posts from devto with valid data" do
+    assert_changes -> { Post.count } do
+      VCR.use_cassette("devto/sync_posts") do
+        post sync_posts_path(platform: "devto")
+      end
+    end
+
+    assert_redirected_to "/dashboard"
+    follow_redirect!
+    assert_response :success
+  end
+
+  test "cannot import posts from devto without devto api key" do
+    user = users(:empty)
+    sign_in user
+
+    post sync_posts_path(platform: "devto")
+    assert_response :unprocessable_entity
+  end
 end
