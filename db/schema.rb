@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_16_223432) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_17_211753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_223432) do
     t.string "hashnode_reply_count"
     t.string "hashnode_response_count"
     t.string "hashnode_etag"
+    t.string "devto_draft"
+    t.string "devto_comments_count"
+    t.string "devto_reactions"
+    t.string "devto_views"
+    t.string "devto_tags"
+    t.string "devto_cover_image"
+    t.string "devto_etag"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
