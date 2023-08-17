@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   resources :posts
   resources :reposts
   resources :dashboard, only: :index
+
+  resources :sync_posts, only: :create
+
   root "home#index"
   get "/login", to: "home#login"
   get "/profile", to: "home#profile"

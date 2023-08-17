@@ -12,8 +12,16 @@
           </div>
         <% end %>
       </div>
+      <div class="flex gap-4">
+        <% if current_user.hashnode_access_token.present? %>
+          <%= link_to sync_posts_path(platform: "hashnode"), data: { turbo_method: :post }, class: " text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mb-2" do%>
+            Import post from Hashnode
+          <% end %>
+        <% end %>
+        <%= link_to "import posts from Devto", "/", class: " text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mb-2" %>
+      </div>
       <div class="col-span-3">
-        <h2 class="text-gray-900 dark:text-gray-300 text-2xl font-bold mb-4">Top posts</h2>
+        <h2 class="text-gray-900 dark:text-gray-300 text-2xl font-bold mb-4">Latest posts</h2>
         <% current_user.posts.each do |post| %>
           <%= render partial: 'posts/post_card', locals: {post: post} %>
         <% end %>
