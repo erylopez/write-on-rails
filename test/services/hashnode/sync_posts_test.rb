@@ -1,12 +1,12 @@
 require "test_helper"
 
-class ImportPostsTest < ActiveSupport::TestCase
+class Hashnode::SyncPostsTest < ActiveSupport::TestCase
   test "import posts" do
     user = users(:one)
 
-    VCR.use_cassette("hashnode/import_posts") do
+    VCR.use_cassette("hashnode/sync_posts") do
       assert_changes "Post.count" do
-        response = Hashnode::ImportPosts.new(user:).call
+        response = Hashnode::SyncPosts.new(user:).call
         assert_equal response.class, HTTParty::Response
         assert user.posts.last.hashnode_etag.present?
         assert user.posts.last.hashnode_url.present?
@@ -17,9 +17,9 @@ class ImportPostsTest < ActiveSupport::TestCase
   test "updates only posts that changed the etag" do
     user = users(:one)
 
-    VCR.use_cassette("hashnode/import_posts") do
+    VCR.use_cassette("hashnode/sync_posts") do
       assert_changes "Post.count" do
-        Hashnode::ImportPosts.new(user:).call
+        Hashnode::SyncPosts.new(user:).call
       end
     end
 
@@ -29,8 +29,8 @@ class ImportPostsTest < ActiveSupport::TestCase
     first_post = user.posts.first
     first_post_updated_at = first_post.updated_at
 
-    VCR.use_cassette("hashnode/import_posts") do
-      Hashnode::ImportPosts.new(user:).call
+    VCR.use_cassette("hashnode/sync_posts") do
+      Hashnode::SyncPosts.new(user:).call
       assert_not_equal last_post_updated_at, last_post.reload.updated_at
       assert_equal first_post_updated_at, first_post.reload.updated_at
     end

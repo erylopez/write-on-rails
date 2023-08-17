@@ -1,4 +1,4 @@
-class Hashnode::ImportPosts < Hashnode::Base
+class Hashnode::SyncPosts < Hashnode::Base
   def initialize(user:)
     @authorization_code = user.hashnode_access_token
     @username = user.hashnode_username

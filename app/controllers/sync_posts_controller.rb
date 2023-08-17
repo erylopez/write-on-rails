@@ -4,7 +4,7 @@ class SyncPostsController < ApplicationController
     case platform
     when "hashnode"
       render json: {error: "You need to connect your Hashnode account first"}, status: :unprocessable_entity and return unless current_user.hashnode_ready?
-      response = Hashnode::ImportPosts.new(user: current_user).call
+      response = Hashnode::SyncPosts.new(user: current_user).call
     when "devto"
       redirect_to dashboard_index_path and return
     end

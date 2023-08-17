@@ -14,7 +14,7 @@ class SyncPostsTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_dom "a[href=?]", "/sync_posts?platform=hashnode"
 
-    VCR.use_cassette("hashnode/import_posts") do
+    VCR.use_cassette("hashnode/sync_posts") do
       post "/sync_posts?platform=hashnode"
     end
     assert_redirected_to "/dashboard"
@@ -24,7 +24,7 @@ class SyncPostsTest < ActionDispatch::IntegrationTest
 
   test "can import posts from hashnode with valid data" do
     assert_changes -> { Post.count } do
-      VCR.use_cassette("hashnode/import_posts") do
+      VCR.use_cassette("hashnode/sync_posts") do
         post sync_posts_path(platform: "hashnode")
       end
     end
