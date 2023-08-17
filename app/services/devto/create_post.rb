@@ -14,6 +14,6 @@ class Devto::CreatePost < Devto::Base
       }
     }.to_json
 
-    HTTParty.post("https://dev.to/api/articles", body: body, headers: {"Content-Type": "application/json", "api-key": @api_key})
+    HTTParty.post("https://dev.to/api/articles", body: body, headers: authentication_header(@api_key))
   end
 end
