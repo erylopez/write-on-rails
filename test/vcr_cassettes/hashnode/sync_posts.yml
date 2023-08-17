@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"\n      {\n        user(username: \"hashy\") {\n          blogHandle\n          publicationDomain\n          publication
+        {\n            posts(page: 0) {\n              coverImage\n              followersCount\n              cuid\n              slug\n              title\n              popularity\n              totalReactions\n              partOfPublication\n              isActive\n              replyCount\n              responseCount\n              dateAdded\n              brief\n              dateUpdated\n              dateFeatured\n              contentMarkdown\n              numUniqueUsersWhoReacted\n              readTime\n              views\n            }\n          }\n        }\n      }\n    "}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - asdf1234-1234-1234-1234-123randomstring123
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2225'
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Expose-Headers:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Powered-By:
+      - Stellate
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Authorization, Accept-Encoding
+      X-Timer:
+      - S1692313447.715986,VS0,VE2073
+      X-Cache-Hits:
+      - '0'
+      X-Cache:
+      - MISS
+      X-Served-By:
+      - cache-eze2230059-EZE
+      Etag:
+      - W/"931-R9y9xpCXWgtJ58ljAT/ajTE7L3U"
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      Access-Control-Allow-Origin:
+      - "*"
+      Via:
+      - 1.1 varnish
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      Gcdn-Cache:
+      - PASS
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      Date:
+      - Thu, 17 Aug 2023 23:04:08 GMT
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkYXRhIjp7InVzZXIiOnsiYmxvZ0hhbmRsZSI6Im1hdGlhc21veWEiLCJwdWJsaWNhdGlvbkRvbWFpbiI6bnVsbCwicHVibGljYXRpb24iOnsicG9zdHMiOlt7ImNvdmVySW1hZ2UiOiIiLCJmb2xsb3dlcnNDb3VudCI6MSwiY3VpZCI6ImNsbGN1dzVpYzBlbTcybG52OHdkcWJ0NHkiLCJzbHVnIjoicG9zdC1mcm9tLWZpeHR1cmVzIiwidGl0bGUiOiJQb3N0IGZyb20gZml4dHVyZXMiLCJwb3B1bGFyaXR5Ijo2MjkxLjY5MjQsInRvdGFsUmVhY3Rpb25zIjowLCJwYXJ0T2ZQdWJsaWNhdGlvbiI6dHJ1ZSwiaXNBY3RpdmUiOnRydWUsInJlcGx5Q291bnQiOjAsInJlc3BvbnNlQ291bnQiOjAsImRhdGVBZGRlZCI6IjIwMjMtMDgtMTVUMjI6MDk6MTcuNzgzWiIsImJyaWVmIjoiVGhpcyBpcyBhIHBvc3QgZnJvbSBmaXh0dXJlcyIsImRhdGVVcGRhdGVkIjpudWxsLCJkYXRlRmVhdHVyZWQiOm51bGwsImNvbnRlbnRNYXJrZG93biI6IlRoaXMgaXMgYSBwb3N0ICoqZnJvbSBmaXh0dXJlcyoqIiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjF9LHsiY292ZXJJbWFnZSI6IiIsImZvbGxvd2Vyc0NvdW50IjoxLCJjdWlkIjoiY2xrcTRrdHluMDI2NWg0bnY2cm0xMTBmcCIsInNsdWciOiJoZWxsby13b3JsZCIsInRpdGxlIjoiSGVsbG8gV29ybGQiLCJwb3B1bGFyaXR5Ijo2MjYxLjE0OSwidG90YWxSZWFjdGlvbnMiOjAsInBhcnRPZlB1YmxpY2F0aW9uIjp0cnVlLCJpc0FjdGl2ZSI6dHJ1ZSwicmVwbHlDb3VudCI6MCwicmVzcG9uc2VDb3VudCI6MCwiZGF0ZUFkZGVkIjoiMjAyMy0wNy0zMVQwMDoyMTo0My43MTNaIiwiYnJpZWYiOiJIZWxsb1xuV2Ugd2lsbCBwYXJzZSB5b3VyIG5vdGlvbiBwYWdlcyB1c2luZyBub3Rpb24tdG8tbWQgcnVieSBnZW0hXG5jbGFzcyBOb3Rpb25Qb3N0XG4gIGRlZiBzZWxmLmNhbGxcbiAgICAgICAgXCJZb3UgY2FuIHdyaXRlIHdoYXRldmVyIHlvdSB3YW50IVwiXG4gIGVuZFxuZW5kXG5cbldlIGhvcGUgeW91IGxpa2UgaXQhIOKdpO+4jyIsImRhdGVVcGRhdGVkIjpudWxsLCJkYXRlRmVhdHVyZWQiOm51bGwsImNvbnRlbnRNYXJrZG93biI6IlxuIyBIZWxsb1xuXG5XZSB3aWxsIHBhcnNlIHlvdXIgbm90aW9uIHBhZ2VzIHVzaW5nIG5vdGlvbi10by1tZCBydWJ5IGdlbSFcblxuYGBgcnVieVxuY2xhc3MgTm90aW9uUG9zdFxuICBkZWYgc2VsZi5jYWxsXG5cdFx0XCJZb3UgY2FuIHdyaXRlIHdoYXRldmVyIHlvdSB3YW50IVwiXG4gIGVuZFxuZW5kXG5gYGBcblxuV2UgaG9wZSB5b3UgbGlrZSBpdCEg4p2k77iPXG5cbjxiciAvPlxuIiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjF9LHsiY292ZXJJbWFnZSI6IiIsImZvbGxvd2Vyc0NvdW50IjoxLCJjdWlkIjoiY2xrcTRrcXpzMDI2NGg0bnZmbWJvYWpndiIsInNsdWciOiJhLW5ldy1wb3N0IiwidGl0bGUiOiJBIG5ldyBwb3N0IiwicG9wdWxhcml0eSI6NjI2MS4xNDg5LCJ0b3RhbFJlYWN0aW9ucyI6MCwicGFydE9mUHVibGljYXRpb24iOnRydWUsImlzQWN0aXZlIjp0cnVlLCJyZXBseUNvdW50IjowLCJyZXNwb25zZUNvdW50IjowLCJkYXRlQWRkZWQiOiIyMDIzLTA3LTMxVDAwOjIxOjM5Ljg2OFoiLCJicmllZiI6IkhlbGxvIHRoZXJlISIsImRhdGVVcGRhdGVkIjpudWxsLCJkYXRlRmVhdHVyZWQiOm51bGwsImNvbnRlbnRNYXJrZG93biI6IlxuSGVsbG8gdGhlcmUhXG5cbjxiciAvPlxuIiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjB9LHsiY292ZXJJbWFnZSI6IiIsImZvbGxvd2Vyc0NvdW50IjoxLCJjdWlkIjoiY2xrb2pmYTV1MDVsbm16bnZmdTlyaDA4bCIsInNsdWciOiJzb21ldGhpbmciLCJ0aXRsZSI6IlNvbWV0aGluZyIsInBvcHVsYXJpdHkiOjYyNTkuMDE1NywidG90YWxSZWFjdGlvbnMiOjAsInBhcnRPZlB1YmxpY2F0aW9uIjp0cnVlLCJpc0FjdGl2ZSI6dHJ1ZSwicmVwbHlDb3VudCI6MCwicmVzcG9uc2VDb3VudCI6MCwiZGF0ZUFkZGVkIjoiMjAyMy0wNy0yOVQyMTo0MTo0Ni42NjJaIiwiYnJpZWYiOiJTb21ldGhpbmcgZWxzZSIsImRhdGVVcGRhdGVkIjpudWxsLCJkYXRlRmVhdHVyZWQiOm51bGwsImNvbnRlbnRNYXJrZG93biI6IlNvbWV0aGluZyBlbHNlIiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjJ9XX19fX0=
+  recorded_at: Thu, 17 Aug 2023 23:04:08 GMT
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"\n      {\n        user(username: \"hashy\") {\n          blogHandle\n          publicationDomain\n          publication
+        {\n            posts(page: 1) {\n              coverImage\n              followersCount\n              cuid\n              slug\n              title\n              popularity\n              totalReactions\n              partOfPublication\n              isActive\n              replyCount\n              responseCount\n              dateAdded\n              brief\n              dateUpdated\n              dateFeatured\n              contentMarkdown\n              numUniqueUsersWhoReacted\n              readTime\n              views\n            }\n          }\n        }\n      }\n    "}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - asdf1234-1234-1234-1234-123randomstring123
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '97'
+      Gcdn-Cache:
+      - PASS
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Expose-Headers:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Type:
+      - application/json; charset=utf-8
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      Etag:
+      - W/"91-TctJie7zKvdtctOMnw85nie4eFk"
+      X-Powered-By:
+      - Stellate
+      Vary:
+      - Authorization, Accept-Encoding
+      X-Timer:
+      - S1692313449.916714,VS0,VE474
+      X-Cache-Hits:
+      - '0'
+      X-Cache:
+      - MISS
+      X-Served-By:
+      - cache-eze2230067-EZE
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      Via:
+      - 1.1 varnish
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      Date:
+      - Thu, 17 Aug 2023 23:04:09 GMT
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      Access-Control-Allow-Origin:
+      - "*"
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"user":{"blogHandle":"matiasmoya","publicationDomain":null,"publication":{"posts":[]}}}}'
+  recorded_at: Thu, 17 Aug 2023 23:04:09 GMT
+recorded_with: VCR 6.2.0
