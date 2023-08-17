@@ -1,8 +1,8 @@
 <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-800">
   <h5 class="mb-3 text-base font-semibold text-gray-900 md:text-xl dark:text-white">
-    Expand your reach
+    Repost
   </h5>
-  <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Link your account with other integrated apps and share your content across all linked platforms!</p>
+  <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Link your account with other integrated apps and share your posts across all linked platforms!</p>
   <%= form_for current_user, url: complete_step_3_onboarding_index_path, method: :get do |f| %>
     <ul class="my-4 space-y-3">
       <% if current_user.devto_api_key.blank? %>
@@ -52,7 +52,7 @@
             <img src="/hashnode.png" alt="writing photo" class="w-6 h-6">
             <span class="flex-1 ml-3 whitespace-nowrap">Hashnode</span>
             <% if post.hashnode_id %>
-              Reposted
+              <span class="font-normal text-sm text-gray-800 dark:text-gray-300">Reposted</span>
             <% else %>
               <%= link_to reposts_path(post_id: post.id, platform: "hashnode"), data: { turbo_method: :post }, class: "inline-flex items-center justify-center p-2 ml-3 text-sm font-medium text-gray-300 bg-blue-700 rounded dark:bg-blue-600 " do %>
                 Repost
@@ -61,27 +61,6 @@
           </div>
         </li>
       <% end %>
-      <li class="grayscale">
-        <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
-          <img src="/twitter.png" alt="writing photo" class="w-6 h-6">
-          <span class="flex-1 ml-3 whitespace-nowrap">Twitter</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Coming soon!</span>
-        </div>
-      </li>
-      <li class="grayscale">
-        <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
-          <img src="/linkedin.png" alt="writing photo" class="w-6 h-6">
-          <span class="flex-1 ml-3 whitespace-nowrap">Linkedin</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Coming soon!</span>
-        </div>
-      </li>
-      <li class="grayscale">
-        <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
-          <img src="/medium.png" alt="writing photo" class="w-6 h-6">
-          <span class="flex-1 ml-3 whitespace-nowrap">Medium</span>
-          <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">Coming soon!</span>
-        </div>
-      </li>
     </ul>
     <% if current_user.hashnode_access_token.blank? || current_user.devto_api_key.blank? %>
       <button type="submit" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mr-2 mb-2">

@@ -98,7 +98,7 @@ module ApplicationHelper
       {
         name: "Hashnode",
         id: post.hashnode_id,
-        url: post.hashnode_id
+        url: post.hashnode_url
       },
       {
         name: "Dev.to",
