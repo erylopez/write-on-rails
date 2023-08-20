@@ -21,4 +21,14 @@ class Post < ApplicationRecord
   def total_likes
     hashnode_reactions.to_i + devto_reactions.to_i
   end
+
+  def published?(platform)
+    case platform
+    when "Hashnode"
+      return true unless hashnode_draft
+    when "Dev.to"
+      return true unless devto_draft
+    end
+    false
+  end
 end

@@ -120,4 +120,20 @@ module ApplicationHelper
       }
     ]
   end
+
+  def publish_toggle_link(post:, platform:)
+    if post.published?(platform)
+      link_to "Unpublish", update_published_post_path(post, platform: platform, published: false), data: {turbo_method: :post}, class: "button-danger"
+    else
+      link_to "Publish", update_published_post_path(post, platform: platform, published: true), data: {turbo_method: :post}, class: "button-default"
+    end
+  end
+
+  def published_or_draft(post:, platform:)
+    if post.published?(platform)
+      "Published"
+    else
+      "Draft"
+    end
+  end
 end
