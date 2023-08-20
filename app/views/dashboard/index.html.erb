@@ -1,6 +1,10 @@
 <div class="flex flex-row gap-4">
   <div class="w-full grid grid-cols-4 gap-4">
     <div class="col-span-3">
+      <%= turbo_stream_from("broadcaster") %>
+      <div id="broadbox">
+        <%= render partial: 'common/asyncbox', locals: {message: "something"} %>
+      </div>
       <div class="flex gap-4 w-full mb-4">
         <% popularity_statistics.each do |stadistic|%>
           <div class="h-auto w-full py-8 color-base border border-gray-200 dark:border-gray-700 flex gap-4 items-center justify-center rounded-lg">
