@@ -9,4 +9,26 @@ class Post < ApplicationRecord
       post.md_content = response[:md]
     end
   end
+
+  def total_views
+    hashnode_views.to_i + devto_views.to_i
+  end
+
+  def total_comments
+    hashnode_reply_count.to_i + devto_comments_count.to_i
+  end
+
+  def total_likes
+    hashnode_reactions.to_i + devto_reactions.to_i
+  end
+
+  def published?(platform)
+    case platform
+    when "Hashnode"
+      return true unless hashnode_draft
+    when "Dev.to"
+      return true unless devto_draft
+    end
+    false
+  end
 end

@@ -9,8 +9,11 @@ module ApplicationHelper
     "<span class='#{tailwind_classes}'>#{text}</span>".html_safe
   end
 
-  def active_path(path)
-    current_page?(path) ? "active_nav" : ""
+  def active_path(controllers)
+    controller_action = "#{params[:controller]}/#{params[:action]}"
+    if controller_action.in?(controllers)
+      "active_nav"
+    end
   end
 
   def embedded_svg(filename, options = {})
@@ -34,26 +37,31 @@ module ApplicationHelper
       {
         name: "Dashboard",
         path: dashboard_index_path,
+        controllers: ["dashboard/index"],
         icon: "book-open"
       },
       {
         name: "Profile",
         path: profile_path,
+        controllers: ["home/profile"],
         icon: "user"
       },
       {
         name: "Posts",
         path: posts_path,
+        controllers: ["posts/index", "posts/show", "posts/edit"],
         icon: "document-duplicate"
       },
       {
         name: "New Post",
         path: new_post_path,
+        controllers: ["posts/new"],
         icon: "pencil-square"
       },
       {
         name: "Leaderboard",
         path: "#",
+        controllers: [],
         icon: "",
         inactive: true
       }
@@ -111,5 +119,21 @@ module ApplicationHelper
         url: post.medium_id
       }
     ]
+  end
+
+  def publish_toggle_link(post:, platform:)
+    if post.published?(platform)
+      link_to "Unpublish", update_published_post_path(post, platform: platform, published: false), data: {turbo_method: :post}, class: "button-danger"
+    else
+      link_to "Publish", update_published_post_path(post, platform: platform, published: true), data: {turbo_method: :post}, class: "button-default"
+    end
+  end
+
+  def published_or_draft(post:, platform:)
+    if post.published?(platform)
+      "Published"
+    else
+      "Draft"
+    end
   end
 end

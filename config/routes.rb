@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     resources :sync_pages, only: [:index, :create]
   end
 
-  resources :posts
+  resources :posts do
+    post :update_published, on: :member
+  end
   resources :reposts
   resources :dashboard, only: :index
 

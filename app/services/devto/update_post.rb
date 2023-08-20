@@ -9,7 +9,6 @@ class Devto::UpdatePost < Devto::Base
     body = {
       article: {
         title: @post.title,
-        published: true,
         body_markdown: @post.md_content,
         tags: "rails, ruby, rubyonrails"
       }
