@@ -43,3 +43,6 @@ group :test do
   gem "webmock"
   gem "simplecov", require: false
 end
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"

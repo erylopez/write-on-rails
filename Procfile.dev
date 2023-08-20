@@ -1,2 +1,3 @@
 web: unset PORT && env bin/rails server
 vite: bin/vite dev --clobber
+redis: redis-server

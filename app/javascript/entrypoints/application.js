@@ -15,7 +15,7 @@ console.log('Visit the guide for more information: ', 'https://vite-ruby.netlify
 
 // Example: Load Rails libraries in Vite.
 //
-import * as Turbo from '@hotwired/turbo'
+import "@hotwired/turbo-rails"
 Turbo.start()
 //
 // import ActiveStorage from '@rails/activestorage'
@@ -27,5 +27,6 @@ Turbo.start()
 // Example: Import a stylesheet in app/frontend/index.css
 // import '~/index.css'
 import '../controllers'
+import "../channels"
 import "flowbite"
 import "flowbite/dist/flowbite.turbo.js"
