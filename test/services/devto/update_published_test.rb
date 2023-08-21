@@ -2,12 +2,12 @@ require "test_helper"
 
 class Devto::UpdatePublishedTest < ActiveSupport::TestCase
   test "Unpublish a post on devto" do
-    VCR.use_cassette("devto/update_publish_post") do
+    VCR.use_cassette("devto/unpublish_post") do
       user = users(:one)
       post = user.posts.create(
         title: "testing publish and unpublish",
         md_content: "testing devto",
-        devto_id: "1573562"
+        devto_id: "12345"
       )
       published = false
 
@@ -17,12 +17,12 @@ class Devto::UpdatePublishedTest < ActiveSupport::TestCase
   end
 
   test "Publish a post on devto" do
-    VCR.use_cassette("devto/update_publish_post") do
+    VCR.use_cassette("devto/publish_post") do
       user = users(:one)
       post = user.posts.create(
         title: "testing publish and unpublish",
         md_content: "testing devto",
-        devto_id: "1573562"
+        devto_id: "12345"
       )
       published = true
 
