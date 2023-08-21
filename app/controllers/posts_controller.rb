@@ -63,6 +63,7 @@ class PostsController < ApplicationController
       flash.now[:error] = "Something went wrong. Please try again later."
     end
     respond_to do |format|
+      format.html { redirect_to @post }
       format.turbo_stream
     end
   end
