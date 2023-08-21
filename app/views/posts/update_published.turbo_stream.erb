@@ -1,0 +1,9 @@
+<%= turbo_stream.update "flash" do %>
+  <%= render partial: "common/flash_notice", locals: {post: @post} %>
+<% end %>
+<%= turbo_stream.replace "post_#{@post.id}_platforms" do %>
+  <%= render partial: "posts/platforms_status", locals: {post: @post} %>
+<% end %>
+<%= turbo_stream.replace "integrations" do %>
+  <%= render partial: "common/integrations_box", locals: {post: @post} %>
+<% end %>

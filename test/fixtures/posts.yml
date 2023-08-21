@@ -8,6 +8,8 @@ one:
   notion_id: nil
   medium_id: nil
   tags: Tests
+  devto_draft: false
+  hashnode_draft: false
 
 two:
   title: MyString
