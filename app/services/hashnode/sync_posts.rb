@@ -27,7 +27,7 @@ class Hashnode::SyncPosts < Hashnode::Base
     )
 
     posts.each do |post|
-      our_post = Post.where(hashnode_id: post.dig("cuid"), user_id: @user.id).first_or_create do |new_post|
+      our_post = Post.where(hashnode_id: post.dig("_id"), user_id: @user.id).first_or_create do |new_post|
         new_post.title = post.dig("title")
         new_post.md_content = post.dig("contentMarkdown")
         new_post.hashnode_slug = post.dig("slug")
@@ -71,6 +71,7 @@ class Hashnode::SyncPosts < Hashnode::Base
             posts(page: #{page}) {
               coverImage
               followersCount
+              _id
               cuid
               slug
               title
