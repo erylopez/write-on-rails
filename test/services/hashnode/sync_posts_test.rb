@@ -32,7 +32,7 @@ class Hashnode::SyncPostsTest < ActiveSupport::TestCase
     VCR.use_cassette("hashnode/sync_posts") do
       Hashnode::SyncPosts.new(user:).call
       assert_not_equal last_post_updated_at, last_post.reload.updated_at
-      assert_equal first_post_updated_at, first_post.reload.updated_at
+      assert_equal first_post_updated_at.to_s, first_post.reload.updated_at.to_s
     end
   end
 end
