@@ -20,7 +20,6 @@ gem "pry-rails"
 gem "httparty"
 gem "notion-ruby-client"
 gem "notion_to_md"
-gem "state_machines-activerecord"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]

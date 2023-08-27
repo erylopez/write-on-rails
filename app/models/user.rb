@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  include Onbordeable
-
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable, :omniauthable,
     omniauth_providers: [:github]

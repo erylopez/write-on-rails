@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_20_192408) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_27_231555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,7 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_20_192408) do
     t.string "github_access_token"
     t.string "notion_access_token"
     t.string "notion_page_id"
-    t.string "onboarding_step", default: "step_1"
     t.string "hashnode_access_token"
     t.string "devto_api_key"
     t.string "hashnode_username"

@@ -19,13 +19,11 @@ class OmniauthLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
     follow_redirect!
 
-    assert_redirected_to onboarding_index_url
+    assert_redirected_to dashboard_index_url
     follow_redirect!
 
-    assert_redirected_to step_1_onboarding_index_url
-    follow_redirect!
-
-    assert Capybara::Node::Simple.new(@response.body).assert_text "Where would you like to write your posts?"
+    assert Capybara::Node::Simple.new(@response.body).assert_text "Latest posts"
+    assert Capybara::Node::Simple.new(@response.body).assert_text "Successfully authenticated from Github account"
   end
 
   test "wont create a new user if oauth fails" do

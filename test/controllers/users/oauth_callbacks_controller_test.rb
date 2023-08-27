@@ -11,6 +11,6 @@ class Users::OauthCallbacksControllerTest < ActionDispatch::IntegrationTest
       end
     end
 
-    assert_redirected_to onboarding_index_path
+    assert_redirected_to dashboard_index_path
   end
 end

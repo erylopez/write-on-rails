@@ -15,7 +15,6 @@ one:
   github_access_token: gho_randomstringsgoeshere12390159
   notion_access_token: secret_token
   notion_page_id: f3399730-1572-492d-b789-34cea229c502
-  onboarding_step: step_4
   hashnode_access_token: asdf1234-1234-1234-1234-123randomstring123
   devto_api_key: pkQzv52hqahaY4yF5Go1uicd
   hashnode_username: hashy
@@ -30,7 +29,7 @@ empty:
   encrypted_password: "somethinghere"
   github_avatar: https://avatars.githubusercontent.com/u/854971
 
-onboarding_step_1:
+two:
   email: fixture_two@email.com
   encrypted_password: "somethinghere1"
   reset_password_token:
@@ -41,7 +40,6 @@ onboarding_step_1:
   github_access_token: gho_randomstringsgoeshere12390159
   notion_access_token: secret_randomstringsgoeshere12390159
   notion_page_id: asdf1234-1234-1234-1234-123asd123asd123
-  onboarding_step: step_1
   hashnode_access_token: asdf1234-1234-1234-1234-123randomstring123
   devto_api_key: randomstringsgoeshere12390159
   hashnode_username: hashy
