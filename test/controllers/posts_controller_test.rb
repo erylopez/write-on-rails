@@ -16,7 +16,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     Devto::UpdatePublished.any_instance.stubs(:call).returns(true)
     user = users(:one)
     sign_in user
-    post = user.posts.create!(title: "Hello, World!", md_content: "This is a test post.", devto_id: 1)
+    post = user.posts.create(title: "Hello, World!", md_content: "This is a test post.", devto_id: 1)
 
     assert_difference("Post.count", -1) do
       delete post_path(post)

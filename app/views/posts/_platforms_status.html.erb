@@ -1,0 +1,15 @@
+<% post_platforms(post).each do |platform| %>
+  <% if platform[:id] %>
+    <li class="mb-5 grid grid-cols-5 gap-8">
+      <div class="flex items-center gap-2">
+        <%= embedded_svg("link", class: "w-4 h-4") %>
+        <span><%= published_or_draft(post: post, platform: platform[:name]) %></span>
+      </div>
+      <div>
+        <%= link_to platform[:url], class: "text-gray-600 dark:text-gray-300", target: "_blank" do%>
+          <%= platform[:name] %>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+<% end %>

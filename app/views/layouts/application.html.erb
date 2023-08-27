@@ -12,7 +12,9 @@
   <body class="bg-gray-100 dark:bg-gray-900">
     <%= render "common/header" %>
     <div class="<%= current_user ? "my-32" : "my-24" %> px-6 max-w-screen-2xl m-auto">
-      <%= render partial: 'common/flash_notice' %>
+      <turbo-frame id="flash">
+        <%= render partial: 'common/flash_notice' %>
+      </turbo-frame>
       <div class="mt-4">
         <%= yield %>
       </div>
