@@ -10,4 +10,19 @@ class Hashnode::Base
       "https://#{blog_handle}.hashnode.dev"
     end
   end
+
+  def with_frontmatter(post)
+    %(---
+      title: A frontmatter example to test in the APIv2 from Hashnode
+      subtitle: An example subtitle
+      slug: post-with-frontmatter
+      tags: ruby,ruby-on-rails,ror
+      cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1649662225945/7f_c6UxhR.jpg?auto=compress
+      domain:
+      saveAsDraft: true
+      ---
+
+      #{post.md_content}
+    )
+  end
 end
