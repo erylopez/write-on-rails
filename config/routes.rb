@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   get "users/auth/notion/callback", to: "users/oauth_callbacks#notion"
 
+  resources :profile, only: :index
+
   namespace :notion do
     resources :sync_pages, only: [:index, :create]
   end
@@ -16,6 +18,4 @@ Rails.application.routes.draw do
   resources :integrations, only: [:create]
 
   root "home#index"
-
-  get "/profile", to: "home#profile"
 end

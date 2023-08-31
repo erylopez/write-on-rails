@@ -3,41 +3,42 @@ class RepostsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
+    @platform = params[:platform]
 
-    case params[:platform]
+    if has_not_configured?(@platform)
+      render json: {error: "Not configured"},
+        status: :unprocessable_entity and return
+    end
+
+    case @platform
     when "hashnode"
-      if @post.hashnode_id.present?
-        redirect_to dashboard_index_path and return
-      end
-      repost_to_hashnode and return
+      render json: {error: "Already posted"}, status: :unprocessable_entity and return if @post.hashnode_id.present?
+      response = Reposter::Hashnode.new(post: @post, user: current_user).call
     when "devto"
-      if @post.devto_id.present?
-        redirect_to dashboard_index_path and return
-      end
-      repost_to_devto and return
+      render json: {error: "Already posted"}, status: :unprocessable_entity and return if @post.devto_id.present?
+      response = Reposter::Devto.new(post: @post, user: current_user).call
+    end
+
+    if response
+      flash.now[:success] = "Post has been reposted on #{@platform}."
+    else
+      flash.now[:alert] = "Something went wrong."
+    end
+
+    respond_to do |format|
+      format.html { redirect_to @post, notice: "Post has been reposted on #{@platform}" }
+      format.turbo_stream
     end
   end
 
   private
 
-  def repost_to_hashnode
-    if current_user.hashnode_ready?
-      Reposter::Hashnode.new(post: @post, user: current_user).call
-      redirect_to dashboard_index_path, notice: "Your post has been reposted to Hashnode." and return
-    else
-      redirect_to dashboard_index_path, alert: "You need to connect your Hashnode account first." and return
+  def has_not_configured?(platform)
+    unless current_user.send("#{platform}_ready?")
+      flash.now[:alert] = "You need to connect your #{platform.capitalize} account first."
+      return true
     end
-  end
 
-  def repost_to_devto
-    if current_user.devto_ready?
-      Reposter::Devto.new(post: @post, user: current_user).call
-      render turbo_stream:
-        turbo_stream.replace("integrations",
-          partial: "common/integrations_box",
-          locals: {post: @post}) and return
-    else
-      redirect_to dashboard_index_path, alert: "You need to connect your Dev.to account first." and return
-    end
+    false
   end
 end

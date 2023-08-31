@@ -42,8 +42,8 @@ module ApplicationHelper
       },
       {
         name: "Profile",
-        path: profile_path,
-        controllers: ["home/profile"],
+        path: profile_index_path,
+        controllers: ["profile/index"],
         icon: "user"
       },
       {
