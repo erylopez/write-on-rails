@@ -43,7 +43,7 @@ module ApplicationHelper
       {
         name: "Profile",
         path: profile_path,
-        controllers: ["home/profile"],
+        controllers: ["profile/index"],
         icon: "user"
       },
       {
