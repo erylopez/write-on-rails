@@ -1,4 +1,4 @@
-class Hashnode::CreatePost
+class Hashnode::CreatePost < Hashnode::Base
   def initialize(authorization_code:, publication_id:, post:)
     @authorization_code = authorization_code
     @publication_id = publication_id
@@ -35,8 +35,6 @@ class Hashnode::CreatePost
         ]
       }
     }
-
-    headers = {"Content-Type": "application/json", Authorization: @authorization_code}
 
     HTTParty.post("https://api.hashnode.com", body: {query: query, variables: variables}.to_json, headers: headers)
   end

@@ -11,6 +11,45 @@ class Hashnode::Base
     end
   end
 
+  def headers
+    {"Content-Type": "application/json", Authorization: @authorization_code}
+  end
+
+  def get_user_posts_query(page: 0)
+    %{
+      {
+        user(username: "#{@username}") {
+          blogHandle
+          publicationDomain
+          publication {
+            posts(page: #{page}) {
+              coverImage
+              followersCount
+              _id
+              cuid
+              slug
+              title
+              popularity
+              totalReactions
+              partOfPublication
+              isActive
+              replyCount
+              responseCount
+              dateAdded
+              brief
+              dateUpdated
+              dateFeatured
+              contentMarkdown
+              numUniqueUsersWhoReacted
+              readTime
+              views
+            }
+          }
+        }
+      }
+    }
+  end
+
   def with_frontmatter(post)
     %(---
       title: A frontmatter example to test in the APIv2 from Hashnode

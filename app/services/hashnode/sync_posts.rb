@@ -8,16 +8,14 @@ class Hashnode::SyncPosts < Hashnode::Base
   def call
     return if @authorization_code.blank?
     return if @username.blank?
-
-    headers = {"Content-Type": "application/json", Authorization: @authorization_code}
     page = 0
 
-    response = HTTParty.post("https://api.hashnode.com", body: {query: query(page:)}.to_json, headers: headers)
+    response = HTTParty.post("https://api.hashnode.com", body: {query: get_user_posts_query(page:)}.to_json, headers: headers)
     posts = response.dig("data", "user", "publication", "posts")
 
     while response.dig("data", "user", "publication", "posts").any?
       page += 1
-      response = HTTParty.post("https://api.hashnode.com", body: {query: query(page:)}.to_json, headers: headers)
+      response = HTTParty.post("https://api.hashnode.com", body: {query: get_user_posts_query(page:)}.to_json, headers: headers)
       posts += response.dig("data", "user", "publication", "posts")
     end
 
@@ -59,40 +57,5 @@ class Hashnode::SyncPosts < Hashnode::Base
     end
 
     response
-  end
-
-  def query(page: 0)
-    %{
-      {
-        user(username: "#{@username}") {
-          blogHandle
-          publicationDomain
-          publication {
-            posts(page: #{page}) {
-              coverImage
-              followersCount
-              _id
-              cuid
-              slug
-              title
-              popularity
-              totalReactions
-              partOfPublication
-              isActive
-              replyCount
-              responseCount
-              dateAdded
-              brief
-              dateUpdated
-              dateFeatured
-              contentMarkdown
-              numUniqueUsersWhoReacted
-              readTime
-              views
-            }
-          }
-        }
-      }
-    }
   end
 end
