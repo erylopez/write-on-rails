@@ -45,39 +45,40 @@ class PostsController < ApplicationController
     end
   end
 
-  def update_published
-    platform = params[:platform]
+  def update_published_status_from_devto
     @post = current_user.posts.find(params[:id])
-    case platform
-    when "Hashnode"
-      render json: {error: "You need to connect your Hashnode account first"}, status: :unprocessable_entity and return unless current_user.hashnode_ready?
-      # Hashnode::SyncPosts.new(user: current_user).call
-    when "Dev.to"
-      render json: {error: "You need to connect your Dev.to account first"}, status: :unprocessable_entity and return unless current_user.devto_ready?
-      response = Devto::UpdatePublished.new(user: current_user, devto_id: @post.devto_id, published: params[:published]).call
-    end
+
+    render json: {error: "You need to connect your Dev.to account first"}, status: :unprocessable_entity and return unless current_user.devto_ready?
+    response = Devto::UpdatePublished.new(user: current_user, devto_id: @post.devto_id, published: params[:published]).call
+
     if response
-      update_published_attribute(platform)
-      flash.now[:success] = "Post has been updated on #{platform}."
+      @post.update(devto_draft: !@post.devto_draft)
+      flash.now[:success] = "Post has been updated on Devto."
     else
       flash.now[:error] = "Something went wrong. Please try again later."
     end
     respond_to do |format|
       format.html { redirect_to @post }
-      format.turbo_stream
+      format.turbo_stream { render :update_post }
+    end
+  end
+
+  def delete_from_hashnode
+    @post = current_user.posts.find(params[:id])
+    response = Hashnode::DeletePost.new(user: current_user, post: @post).call
+    if response.code == 200
+      @post.update(hashnode_id: nil)
+      flash.now[:success] = "Post has been deleted from Hashnode."
+    else
+      flash.now[:error] = "Something went wrong. Please try again later."
+    end
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.turbo_stream { render :update_post }
     end
   end
 
   protected
-
-  def update_published_attribute(platform)
-    case platform
-    when "Hashnode"
-      @post.update(hashnode_draft: !@post.hashnode_published)
-    when "Dev.to"
-      @post.update(devto_draft: !@post.devto_draft)
-    end
-  end
 
   def post_params
     params.require(:post).permit(:title, :md_content)

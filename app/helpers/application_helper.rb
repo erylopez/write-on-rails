@@ -121,11 +121,11 @@ module ApplicationHelper
     ]
   end
 
-  def publish_toggle_link(post:, platform:)
-    if post.published?(platform)
-      link_to "Unpublish", update_published_post_path(post, platform: platform, published: false), data: {turbo_method: :post}, class: "button-danger"
+  def publish_devto_toggle_link(post:)
+    if post.published?("Dev.to")
+      link_to "Unpublish", update_published_status_from_devto_post_path(post, published: false), data: {turbo_method: :post}, class: "button-danger"
     else
-      link_to "Publish", update_published_post_path(post, platform: platform, published: true), data: {turbo_method: :post}, class: "button-default"
+      link_to "Publish", update_published_status_from_devto_post_path(post, published: true), data: {turbo_method: :post}, class: "button-default"
     end
   end
 

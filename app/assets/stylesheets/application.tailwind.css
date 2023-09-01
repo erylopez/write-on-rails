@@ -12,7 +12,7 @@
     @apply inline-flex items-center justify-center p-2 ml-3 text-sm font-medium text-gray-300 bg-blue-700 rounded dark:bg-blue-600 ;
   }
   .button-danger {
-    @apply inline-flex items-center justify-center p-2 ml-3 text-sm font-medium text-gray-300 bg-red-600 rounded dark:bg-red-500;
+    @apply inline-flex items-center justify-center p-2 ml-3 text-sm font-medium text-gray-300 bg-red-600 rounded;
   }
   .color-base {
     @apply bg-gray-300 text-gray-800 dark:bg-gray-800 dark:text-gray-300;

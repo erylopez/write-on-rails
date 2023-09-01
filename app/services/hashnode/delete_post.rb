@@ -1,8 +1,8 @@
 class Hashnode::DeletePost < Hashnode::Base
-  def initialize(authorization_code:, publication_id:, post:)
-    @authorization_code = authorization_code
-    @publication_id = publication_id
+  def initialize(user:, post:)
+    @user = user
     @post = post
+    @authorization_code = user.hashnode_access_token
   end
 
   def call

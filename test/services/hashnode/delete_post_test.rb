@@ -2,6 +2,7 @@ require "test_helper"
 
 class Hashnode::DeletePostTest < ActiveSupport::TestCase
   test "deletes a post in hashnode" do
+    user = users(:one)
     VCR.use_cassette("hashnode/delete_post") do
       post = Post.create(title: "Created in tests", md_content: "Created **in** tests")
 
@@ -20,8 +21,7 @@ class Hashnode::DeletePostTest < ActiveSupport::TestCase
       assert response.dig("data", "createStory", "post", "_id").present?
 
       delete_response = Hashnode::DeletePost.new(
-        authorization_code: "my-secret-authorization-code",
-        publication_id: "my-publication-id",
+        user: user,
         post: post
       ).call
 
