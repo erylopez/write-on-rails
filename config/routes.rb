@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    post :update_published, on: :member
+    post :update_published_status_from_devto, on: :member
+    post :delete_from_hashnode, on: :member
   end
 
   resources :reposts

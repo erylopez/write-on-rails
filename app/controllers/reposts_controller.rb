@@ -27,7 +27,7 @@ class RepostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @post, notice: "Post has been reposted on #{@platform}" }
-      format.turbo_stream
+      format.turbo_stream { render "posts/update_post" }
     end
   end
 
