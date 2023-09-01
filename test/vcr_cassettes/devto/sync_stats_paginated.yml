@@ -1,0 +1,235 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://dev.to/api/articles/me/all?page=1&per_page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/vnd.forem.api-v1+json
+      Api-Key:
+      - devto_api_key
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"a566c3589fa032f7719e62e6cc0878fd"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Security-Policy:
+      - ''
+      X-Request-Id:
+      - fb7d4f80-52f8-49c5-805f-4cd2e34b5b03
+      X-Runtime:
+      - '0.023107'
+      Via:
+      - 1.1 vegur, 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - "*"
+      Date:
+      - Thu, 31 Aug 2023 22:38:59 GMT
+      X-Served-By:
+      - cache-den8242-DEN, cache-eze2230055-EZE
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1693521539.873316,VS0,VE246
+      Vary:
+      - Accept-Encoding, Origin, X-Loggedin
+      Strict-Transport-Security:
+      - max-age=31557600
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sidHlwZV9vZiI6ImFydGljbGUiLCJpZCI6MTU1NDIxNCwidGl0bGUiOiJIZWxsbyBXb3JsZCIsImRlc2NyaXB0aW9uIjoiSGVsbG8gICBXZSB3aWxsIHBhcnNlIHlvdXIgbm90aW9uIHBhZ2VzIHVzaW5nIG5vdGlvbi10by1tZCBydWJ5IGdlbSEgICAgY2xhc3MgTm90aW9uUG9zdCAgLi4uIiwicHVibGlzaGVkIjpmYWxzZSwicHVibGlzaGVkX2F0IjoiMjAyMy0wNy0zMVQwMDoyMTo0MS4yODdaIiwic2x1ZyI6ImhlbGxvLXdvcmxkLTNlbiIsInBhdGgiOiIvbWF0aWFzbW95YS9oZWxsby13b3JsZC0zZW4iLCJ1cmwiOiJodHRwczovL2Rldi50by9tYXRpYXNtb3lhL2hlbGxvLXdvcmxkLTNlbiIsImNvbW1lbnRzX2NvdW50IjowLCJwdWJsaWNfcmVhY3Rpb25zX2NvdW50IjowLCJwYWdlX3ZpZXdzX2NvdW50IjoxLCJwdWJsaXNoZWRfdGltZXN0YW1wIjoiIiwiYm9keV9tYXJrZG93biI6IlxuIyBIZWxsb1xuXG5XZSB3aWxsIHBhcnNlIHlvdXIgbm90aW9uIHBhZ2VzIHVzaW5nIG5vdGlvbi10by1tZCBydWJ5IGdlbSFcblxuYGBgcnVieVxuY2xhc3MgTm90aW9uUG9zdFxuICBkZWYgc2VsZi5jYWxsXG5cdFx0XCJZb3UgY2FuIHdyaXRlIHdoYXRldmVyIHlvdSB3YW50IVwiXG4gIGVuZFxuZW5kXG5gYGBcblxuV2UgaG9wZSB5b3UgbGlrZSBpdCEg4p2k77iPXG5cblx1MDAzY2JyIC9cdTAwM2VcbiIsInBvc2l0aXZlX3JlYWN0aW9uc19jb3VudCI6MCwiY292ZXJfaW1hZ2UiOm51bGwsInRhZ19saXN0IjpbXSwiY2Fub25pY2FsX3VybCI6Imh0dHBzOi8vZGV2LnRvL21hdGlhc21veWEvaGVsbG8td29ybGQtM2VuIiwicmVhZGluZ190aW1lX21pbnV0ZXMiOjEsInVzZXIiOnsibmFtZSI6Ik1hdHQgSGluY3p1ayIsInVzZXJuYW1lIjoibWF0aWFzbW95YSIsInR3aXR0ZXJfdXNlcm5hbWUiOiJtYXRpYXNtb3lhIiwiZ2l0aHViX3VzZXJuYW1lIjoibWF0aWFzbW95YSIsInVzZXJfaWQiOjEyNDc1LCJ3ZWJzaXRlX3VybCI6bnVsbCwicHJvZmlsZV9pbWFnZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3ByYWN0aWNhbGRldi9pbWFnZS9mZXRjaC9zLS05bV9zUndBUC0tL2NfZmlsbCxmX2F1dG8sZmxfcHJvZ3Jlc3NpdmUsaF82NDAscV9hdXRvLHdfNjQwL2h0dHBzOi8vZGV2LXRvLXVwbG9hZHMuczMuYW1hem9uYXdzLmNvbS91cGxvYWRzL3VzZXIvcHJvZmlsZV9pbWFnZS8xMjQ3NS84NTQ5NzEuanBlZyIsInByb2ZpbGVfaW1hZ2VfOTAiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9wcmFjdGljYWxkZXYvaW1hZ2UvZmV0Y2gvcy0tZktaRTNSWHYtLS9jX2ZpbGwsZl9hdXRvLGZsX3Byb2dyZXNzaXZlLGhfOTAscV9hdXRvLHdfOTAvaHR0cHM6Ly9kZXYtdG8tdXBsb2Fkcy5zMy5hbWF6b25hd3MuY29tL3VwbG9hZHMvdXNlci9wcm9maWxlX2ltYWdlLzEyNDc1Lzg1NDk3MS5qcGVnIn19XQ==
+  recorded_at: Thu, 31 Aug 2023 22:38:58 GMT
+- request:
+    method: get
+    uri: https://dev.to/api/articles/me/all?page=2&per_page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/vnd.forem.api-v1+json
+      Api-Key:
+      - devto_api_key
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"e54ca880f15d40547a1bad94eeca2886"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Security-Policy:
+      - ''
+      X-Request-Id:
+      - 593a8931-c46e-4cf1-ace2-c97a9d3c6e00
+      X-Runtime:
+      - '0.051927'
+      Via:
+      - 1.1 vegur, 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - "*"
+      Date:
+      - Thu, 31 Aug 2023 22:38:59 GMT
+      X-Served-By:
+      - cache-den8262-DEN, cache-eze2230051-EZE
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1693521539.241573,VS0,VE297
+      Vary:
+      - Accept-Encoding, Origin, X-Loggedin
+      Strict-Transport-Security:
+      - max-age=31557600
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '[{"type_of":"article","id":1554213,"title":"A new post","description":"Hello
+        there!","published":true,"published_at":"2023-07-31T00:21:36.811Z","slug":"a-new-post-haj","path":"/matiasmoya/a-new-post-haj","url":"https://dev.to/matiasmoya/a-new-post-haj","comments_count":1,"public_reactions_count":0,"page_views_count":4,"published_timestamp":"2023-07-31T00:21:36Z","body_markdown":"\nHello
+        there!\n\n\u003cbr /\u003e\n","positive_reactions_count":0,"cover_image":null,"tag_list":[],"canonical_url":"https://dev.to/matiasmoya/a-new-post-haj","reading_time_minutes":1,"user":{"name":"Matt
+        Hinczuk","username":"matiasmoya","twitter_username":"matiasmoya","github_username":"matiasmoya","user_id":12475,"website_url":null,"profile_image":"https://res.cloudinary.com/practicaldev/image/fetch/s--9m_sRwAP--/c_fill,f_auto,fl_progressive,h_640,q_auto,w_640/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/12475/854971.jpeg","profile_image_90":"https://res.cloudinary.com/practicaldev/image/fetch/s--fKZE3RXv--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/12475/854971.jpeg"}}]'
+  recorded_at: Thu, 31 Aug 2023 22:38:59 GMT
+- request:
+    method: get
+    uri: https://dev.to/api/articles/me/all?page=3&per_page=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Accept:
+      - application/vnd.forem.api-v1+json
+      Api-Key:
+      - devto_api_key
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - Cowboy
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"8f06f9c032befe2ef1bf5fc9d4495537"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Content-Security-Policy:
+      - ''
+      X-Request-Id:
+      - 7c4f621a-dfd2-4f41-a1c4-cd572a44410b
+      X-Runtime:
+      - '0.019276'
+      Via:
+      - 1.1 vegur, 1.1 varnish, 1.1 varnish
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - "*"
+      Date:
+      - Thu, 31 Aug 2023 22:38:59 GMT
+      X-Served-By:
+      - cache-den8267-DEN, cache-eze2230076-EZE
+      X-Cache:
+      - MISS, MISS
+      X-Cache-Hits:
+      - 0, 0
+      X-Timer:
+      - S1693521540.672205,VS0,VE281
+      Vary:
+      - Accept-Encoding, Origin, X-Loggedin
+      Strict-Transport-Security:
+      - max-age=31557600
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: "[]"
+  recorded_at: Thu, 31 Aug 2023 22:38:59 GMT
+recorded_with: VCR 6.2.0

@@ -3,19 +3,6 @@
 one:
   title: Post from fixtures
   md_content: This is a post **from fixtures**
-  hashnode_id: nil
-  devto_id: nil
-  notion_id: nil
-  medium_id: nil
   tags: Tests
   devto_draft: false
   hashnode_draft: false
-
-two:
-  title: MyString
-  md_content: MyText
-  hashnode_id: MyString
-  devto_id: MyString
-  notion_id: MyString
-  medium_id: MyString
-  tags: MyString
