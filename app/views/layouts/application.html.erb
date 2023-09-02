@@ -10,10 +10,10 @@
     <%= vite_javascript_tag 'application' %>
   </head>
   <body class="bg-gray-100 dark:bg-gray-900">
-    <%= render "common/header" %>
+    <%= render partial: "common/header" %>
     <div class="<%= current_user ? "my-32" : "my-24" %> px-6 max-w-screen-2xl m-auto">
       <turbo-frame id="flash">
-        <%= render partial: 'common/flash_notice' %>
+        <%= render partial: "common/flash_notice" %>
       </turbo-frame>
       <div class="mt-4">
         <%= yield %>
