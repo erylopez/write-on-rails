@@ -15,8 +15,8 @@ one:
   github_access_token: gho_randomstringsgoeshere12390159
   notion_access_token: secret_token
   notion_page_id: f3399730-1572-492d-b789-34cea229c502
-  hashnode_access_token: asdf1234-1234-1234-1234-123randomstring123
   devto_api_key: devto_api_key
+  hashnode_access_token: asdf1234-1234-1234-1234-123randomstring123
   hashnode_username: hashy
   hashnode_blog_handle: hashnode
   github_bio: bio

@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"\n      {\n        user(username: \"hinczuk\") {\n          blogHandle\n          publicationDomain\n          publication
+        {\n            posts(page: 0) {\n              coverImage\n              followersCount\n              _id\n              cuid\n              slug\n              title\n              popularity\n              totalReactions\n              partOfPublication\n              isActive\n              replyCount\n              responseCount\n              dateAdded\n              brief\n              dateUpdated\n              dateFeatured\n              contentMarkdown\n              numUniqueUsersWhoReacted\n              readTime\n              views\n            }\n          }\n        }\n      }\n    "}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - asdf1234-1234-1234-1234-123randomstring123
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3491'
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Expose-Headers:
+      - "*"
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      Gcdn-Cache:
+      - PASS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Powered-By:
+      - Stellate
+      Vary:
+      - Authorization, Accept-Encoding
+      X-Timer:
+      - S1693537911.039604,VS0,VE1348
+      X-Cache-Hits:
+      - '0'
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Cache:
+      - MISS
+      Etag:
+      - W/"e4b-uald5IwY6hp30cZzlX/CQk6GhXU"
+      X-Served-By:
+      - cache-eze2230066-EZE
+      Via:
+      - 1.1 varnish
+      Date:
+      - Fri, 01 Sep 2023 03:11:52 GMT
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkYXRhIjp7InVzZXIiOnsiYmxvZ0hhbmRsZSI6Im1hdGlhc21veWEiLCJwdWJsaWNhdGlvbkRvbWFpbiI6bnVsbCwicHVibGljYXRpb24iOnsicG9zdHMiOlt7ImNvdmVySW1hZ2UiOiIiLCJmb2xsb3dlcnNDb3VudCI6MSwiX2lkIjoiNjRlYmYxZmMwMzcwNDEyZTY3ODJlY2M0IiwiY3VpZCI6ImNsbHU2Yzd6ZTAzM2ZwdG52aGc5dTIwN2wiLCJzbHVnIjoiaGVsbG8td29ybGQiLCJ0aXRsZSI6IkhlbGxvIFdvcmxkIiwicG9wdWxhcml0eSI6NjMxNC45NjI0LCJ0b3RhbFJlYWN0aW9ucyI6MCwicGFydE9mUHVibGljYXRpb24iOnRydWUsImlzQWN0aXZlIjp0cnVlLCJyZXBseUNvdW50IjowLCJyZXNwb25zZUNvdW50IjowLCJkYXRlQWRkZWQiOiIyMDIzLTA4LTI4VDAxOjAxOjQ4LjI0MloiLCJicmllZiI6IkhlbGxvXG5XZSB3aWxsIHBhcnNlIHlvdXIgbm90aW9uIHBhZ2VzIHVzaW5nIG5vdGlvbi10by1tZCBydWJ5IGdlbSFcbmNsYXNzIE5vdGlvblBvc3RcbiAgZGVmIHNlbGYuY2FsbFxuICAgICAgICBcIllvdSBjYW4gd3JpdGUgd2hhdGV2ZXIgeW91IHdhbnQhXCJcbiAgZW5kXG5lbmRcblxuV2UgaG9wZSB5b3UgbGlrZSBpdCEg4p2k77iPIiwiZGF0ZVVwZGF0ZWQiOm51bGwsImRhdGVGZWF0dXJlZCI6bnVsbCwiY29udGVudE1hcmtkb3duIjoiXG4jIEhlbGxvXG5cbldlIHdpbGwgcGFyc2UgeW91ciBub3Rpb24gcGFnZXMgdXNpbmcgbm90aW9uLXRvLW1kIHJ1YnkgZ2VtIVxuXG5gYGBydWJ5XG5jbGFzcyBOb3Rpb25Qb3N0XG4gIGRlZiBzZWxmLmNhbGxcblx0XHRcIllvdSBjYW4gd3JpdGUgd2hhdGV2ZXIgeW91IHdhbnQhXCJcbiAgZW5kXG5lbmRcbmBgYFxuXG5XZSBob3BlIHlvdSBsaWtlIGl0ISDinaTvuI9cblxuPGJyIC8+XG4iLCJudW1VbmlxdWVVc2Vyc1dob1JlYWN0ZWQiOm51bGwsInJlYWRUaW1lIjoxLCJ2aWV3cyI6MH0seyJjb3ZlckltYWdlIjoiIiwiZm9sbG93ZXJzQ291bnQiOm51bGwsIl9pZCI6IjY0ZTgwNmQ4NjQ0MzEwOWZmMjJlNmI2ZiIsImN1aWQiOiJjbGxweGcwcnMwMDAyMDhsOWRoejg1N3o5Iiwic2x1ZyI6InRlc3QiLCJ0aXRsZSI6IlRlc3QiLCJwb3B1bGFyaXR5Ijo2MzA5LjI1NTYsInRvdGFsUmVhY3Rpb25zIjowLCJwYXJ0T2ZQdWJsaWNhdGlvbiI6dHJ1ZSwiaXNBY3RpdmUiOnRydWUsInJlcGx5Q291bnQiOjAsInJlc3BvbnNlQ291bnQiOjAsImRhdGVBZGRlZCI6IjIwMjMtMDgtMjVUMDE6NDE6NDQuMjk3WiIsImJyaWVmIjoiVGVzdCIsImRhdGVVcGRhdGVkIjoiMjAyMy0wOC0yN1QyMjoxOToxNS45NzhaIiwiZGF0ZUZlYXR1cmVkIjpudWxsLCJjb250ZW50TWFya2Rvd24iOiJUZXN0IiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjJ9LHsiY292ZXJJbWFnZSI6IiIsImZvbGxvd2Vyc0NvdW50IjoxLCJfaWQiOiI2NGUzY2YwZGE5YThiOWJiYzhjZjk3NGYiLCJjdWlkIjoiY2xsbGN2OHJwMGJkbTJybnZodm12OG5pNiIsInNsdWciOiJzb21ldGhpbmctc29tZXRoaW5nLXVwZGF0ZWQtdGhlcmUiLCJ0aXRsZSI6IlNvbWV0aGluZyBzb21ldGhpbmcgdXBkYXRlZCB0aGVyZSIsInBvcHVsYXJpdHkiOjYzMDMuMTEyOCwidG90YWxSZWFjdGlvbnMiOjAsInBhcnRPZlB1YmxpY2F0aW9uIjp0cnVlLCJpc0FjdGl2ZSI6dHJ1ZSwicmVwbHlDb3VudCI6MCwicmVzcG9uc2VDb3VudCI6MCwiZGF0ZUFkZGVkIjoiMjAyMy0wOC0yMVQyMDo1NDozNy44NDhaIiwiYnJpZWYiOiJTb21ldGhpbmcgZWxzZSBVUERBVEVEIGZyb20gc2VydmljZXMiLCJkYXRlVXBkYXRlZCI6IjIwMjMtMDgtMjVUMDE6MzI6MTAuNzg4WiIsImRhdGVGZWF0dXJlZCI6bnVsbCwiY29udGVudE1hcmtkb3duIjoiU29tZXRoaW5nIGVsc2UgVVBEQVRFRCBmcm9tIHNlcnZpY2VzIiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjE3fSx7ImNvdmVySW1hZ2UiOiIiLCJmb2xsb3dlcnNDb3VudCI6MSwiX2lkIjoiNjRkYmY3OGQ0NDI5Mzg1YjkyODAyMzM5IiwiY3VpZCI6ImNsbGN1dzVpYzBlbTcybG52OHdkcWJ0NHkiLCJzbHVnIjoicG9zdC1mcm9tLWZpeHR1cmVzIiwidGl0bGUiOiJQb3N0IGZyb20gZml4dHVyZXMiLCJwb3B1bGFyaXR5Ijo2MjkxLjY5MjQsInRvdGFsUmVhY3Rpb25zIjowLCJwYXJ0T2ZQdWJsaWNhdGlvbiI6dHJ1ZSwiaXNBY3RpdmUiOnRydWUsInJlcGx5Q291bnQiOjAsInJlc3BvbnNlQ291bnQiOjAsImRhdGVBZGRlZCI6IjIwMjMtMDgtMTVUMjI6MDk6MTcuNzgzWiIsImJyaWVmIjoiVGhpcyBpcyBhIHBvc3QgZnJvbSBmaXh0dXJlcyIsImRhdGVVcGRhdGVkIjpudWxsLCJkYXRlRmVhdHVyZWQiOm51bGwsImNvbnRlbnRNYXJrZG93biI6IlRoaXMgaXMgYSBwb3N0ICoqZnJvbSBmaXh0dXJlcyoqIiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjN9LHsiY292ZXJJbWFnZSI6IiIsImZvbGxvd2Vyc0NvdW50IjoxLCJfaWQiOiI2NGM2ZmU5M2E1NWExNTg4ZmMyYzgyNjgiLCJjdWlkIjoiY2xrcTRrcXpzMDI2NGg0bnZmbWJvYWpndiIsInNsdWciOiJhLW5ldy1wb3N0IiwidGl0bGUiOiJBIG5ldyBwb3N0IiwicG9wdWxhcml0eSI6NjI2MS4xNDg5LCJ0b3RhbFJlYWN0aW9ucyI6MCwicGFydE9mUHVibGljYXRpb24iOnRydWUsImlzQWN0aXZlIjp0cnVlLCJyZXBseUNvdW50IjowLCJyZXNwb25zZUNvdW50IjowLCJkYXRlQWRkZWQiOiIyMDIzLTA3LTMxVDAwOjIxOjM5Ljg2OFoiLCJicmllZiI6IkhlbGxvIHRoZXJlISIsImRhdGVVcGRhdGVkIjpudWxsLCJkYXRlRmVhdHVyZWQiOm51bGwsImNvbnRlbnRNYXJrZG93biI6IlxuSGVsbG8gdGhlcmUhXG5cbjxiciAvPlxuIiwibnVtVW5pcXVlVXNlcnNXaG9SZWFjdGVkIjpudWxsLCJyZWFkVGltZSI6MSwidmlld3MiOjB9LHsiY292ZXJJbWFnZSI6IiIsImZvbGxvd2Vyc0NvdW50IjoxLCJfaWQiOiI2NGM1ODc5YTVhMGYyYjYxNGYzMTVjZDYiLCJjdWlkIjoiY2xrb2pmYTV1MDVsbm16bnZmdTlyaDA4bCIsInNsdWciOiJzb21ldGhpbmctc29tZXRoaW5nLXVwZGF0ZWQtdGhlcmUtMSIsInRpdGxlIjoiU29tZXRoaW5nIHNvbWV0aGluZyB1cGRhdGVkIHRoZXJlIiwicG9wdWxhcml0eSI6NjI1OS4wMTU3LCJ0b3RhbFJlYWN0aW9ucyI6MCwicGFydE9mUHVibGljYXRpb24iOnRydWUsImlzQWN0aXZlIjp0cnVlLCJyZXBseUNvdW50IjowLCJyZXNwb25zZUNvdW50IjowLCJkYXRlQWRkZWQiOiIyMDIzLTA3LTI5VDIxOjQxOjQ2LjY2MloiLCJicmllZiI6IlNvbWV0aGluZyBlbHNlIFVQREFURUQgZnJvbSBzZXJ2aWNlcyIsImRhdGVVcGRhdGVkIjoiMjAyMy0wOC0yNVQwMTozNDoxMi43MDlaIiwiZGF0ZUZlYXR1cmVkIjpudWxsLCJjb250ZW50TWFya2Rvd24iOiJTb21ldGhpbmcgZWxzZSBVUERBVEVEIGZyb20gc2VydmljZXMiLCJudW1VbmlxdWVVc2Vyc1dob1JlYWN0ZWQiOm51bGwsInJlYWRUaW1lIjoxLCJ2aWV3cyI6MTh9XX19fX0=
+  recorded_at: Fri, 01 Sep 2023 03:11:52 GMT
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"\n      {\n        user(username: \"hinczuk\") {\n          blogHandle\n          publicationDomain\n          publication
+        {\n            posts(page: 1) {\n              coverImage\n              followersCount\n              _id\n              cuid\n              slug\n              title\n              popularity\n              totalReactions\n              partOfPublication\n              isActive\n              replyCount\n              responseCount\n              dateAdded\n              brief\n              dateUpdated\n              dateFeatured\n              contentMarkdown\n              numUniqueUsersWhoReacted\n              readTime\n              views\n            }\n          }\n        }\n      }\n    "}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - asdf1234-1234-1234-1234-123randomstring123
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '97'
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Expose-Headers:
+      - "*"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Powered-By:
+      - Stellate
+      Vary:
+      - Authorization, Accept-Encoding
+      X-Timer:
+      - S1693537913.560314,VS0,VE904
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      X-Cache-Hits:
+      - '0'
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      X-Cache:
+      - MISS
+      X-Served-By:
+      - cache-eze2230065-EZE
+      Via:
+      - 1.1 varnish
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"91-TctJie7zKvdtctOMnw85nie4eFk"
+      Date:
+      - Fri, 01 Sep 2023 03:11:53 GMT
+      Gcdn-Cache:
+      - PASS
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"user":{"blogHandle":"matiasmoya","publicationDomain":null,"publication":{"posts":[]}}}}'
+  recorded_at: Fri, 01 Sep 2023 03:11:53 GMT
+recorded_with: VCR 6.2.0

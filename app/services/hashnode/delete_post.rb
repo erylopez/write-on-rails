@@ -18,8 +18,6 @@ class Hashnode::DeletePost < Hashnode::Base
 
     variables = {id: @post.hashnode_id}
 
-    headers = {"Content-Type": "application/json", Authorization: @authorization_code}
-
     HTTParty.post("https://api.hashnode.com", body: {query: query, variables: variables}.to_json, headers: headers)
   end
 end
