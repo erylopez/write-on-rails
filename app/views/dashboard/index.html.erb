@@ -1,25 +1,10 @@
 <div class="flex flex-row gap-4">
   <div class="w-full grid grid-cols-4 gap-4">
     <div class="col-span-3">
-      <div class="flex gap-4 w-full mb-4">
-        <% popularity_statistics.each do |stadistic|%>
-          <div class="h-auto w-full py-8 color-base border border-gray-200 dark:border-gray-700 flex gap-4 items-center justify-center rounded-lg">
-            <%= embedded_svg(stadistic[:icon], class:"w-12 h-12")%>
-            <div>
-              <h5 class="text-2xl font-bold"><%= stadistic[:count] %></h5>
-              <span><%= stadistic[:name] %></span>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <div class="flex gap-4">
-        <% if current_user.hashnode_access_token.present? %>
-          <%= link_to sync_posts_path(platform: "hashnode"), data: { turbo_method: :post }, class: " text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mb-2" do%>
-            Import post from Hashnode
-          <% end %>
-        <% end %>
-        <%= link_to sync_posts_path(platform: "devto"), data: { turbo_method: :post }, class: " text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mb-2" do %>
-          Import post from Dev.to
+      <div class="flex gap-4 mb-8">
+        <% ["devto", "hashnode"].each do |platform| %>
+          <%= import_posts_link(platform: platform) %>
+          <%= sync_stats_link(platform: platform) %>
         <% end %>
       </div>
       <div class="col-span-3">

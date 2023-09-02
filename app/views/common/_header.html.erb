@@ -10,7 +10,7 @@
             <div class="relative" data-controller="dropdown">
               <button class="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0  dark:text-white" type="button" data-action="click->dropdown#toggle">
                 <%= image_tag current_user.github_avatar, class: "w-10 h-10 mr-2 rounded-full" %>
-                <%= current_user.email %>
+                <%= current_user.nickname %>
                 <div id="dropdownArrow" data-dropdown-target="dropdownArrow" class="ml-2">
                   <%= embedded_svg("chevron-down", class: "w-2.5 h-2.5")%>
                 </div>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :reposts
   resources :dashboard, only: :index
   resources :sync_posts, only: :create
+  resources :sync_stats, only: :create
   resources :integrations, only: [:create]
 
   root "home#index"

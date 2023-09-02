@@ -136,4 +136,16 @@ module ApplicationHelper
       "Draft"
     end
   end
+
+  def import_posts_link(platform:)
+    if current_user.send("#{platform}_ready?")
+      link_to "Import Posts from #{platform.capitalize}", sync_posts_path(platform: platform), data: {turbo_method: :post}, class: "button-default w-full"
+    end
+  end
+
+  def sync_stats_link(platform:)
+    if current_user.send("#{platform}_ready?")
+      link_to "Sync Stats from #{platform.capitalize}", sync_stats_path(platform: platform), data: {turbo_method: :post}, class: "button-default w-full bg-purple-600"
+    end
+  end
 end

@@ -8,12 +8,16 @@
       </div>
       <div class="flex gap-4 justify-end text-gray-500 dark:text-gray-400">
         <div class="flex gap-1">
+          <%= embedded_svg("eye", class: "w-6 h-6") %>
+          <span><%= post.total_views %></span>
+        </div>
+        <div class="flex gap-1">
           <%= embedded_svg("heart", class: "w-6 h-6") %>
-          <span>55</span>
+          <span><%= post.total_likes %></span>
         </div>
         <div class="flex gap-1">
           <%= embedded_svg("chat-bubble-bottom-center", class: "w-6 h-6") %>
-          <span>7</span>
+          <span><%= post.total_comments %></span>
         </div>
       </div>
       <div class="flex gap-1">
