@@ -4,6 +4,6 @@
 <%= turbo_stream.replace "post_#{@post.id}_platforms" do %>
   <%= render partial: "posts/platforms_status", locals: {post: @post} %>
 <% end %>
-<%= turbo_stream.replace "integrations" do %>
+<%= turbo_stream.update "integrations" do %>
   <%= render partial: "common/integrations_box", locals: {post: @post} %>
 <% end %>

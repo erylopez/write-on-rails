@@ -28,5 +28,3 @@ Turbo.start()
 // import '~/index.css'
 import '../controllers'
 import "../channels"
-import "flowbite"
-import "flowbite/dist/flowbite.turbo.js"
