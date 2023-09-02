@@ -1,14 +1,13 @@
 require "test_helper"
 
 class Hashnode::UpdatePostTest < ActiveSupport::TestCase
-  test "updates post" do
+  test "Updates post" do
     user = users(:one)
-    post = user.posts.create(title: "Test", md_content: "Test", hashnode_id: "12345")
+    post = user.posts.create(title: "Test", md_content: "Test", hashnode_id: "123456")
 
     VCR.use_cassette("hashnode/update_post") do
       response = Hashnode::UpdatePost.new(
-        authorization_code: user.hashnode_access_token,
-        publication_id: user.hashnode_publication_id,
+        user: user,
         post: post
       ).call
 

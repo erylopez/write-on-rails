@@ -29,8 +29,8 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      Devto::UpdatePost.new(api_key: current_user.devto_api_key, post: @post).call
-
+      Devto::UpdatePost.new(user: current_user, post: @post).call if @post.devto_id.present?
+      Hashnode::UpdatePost.new(user: current_user, post: @post).call if @post.hashnode_id.present?
       redirect_to @post, notice: "Post was successfully updated."
     else
       render :edit, status: :unprocessable_entity

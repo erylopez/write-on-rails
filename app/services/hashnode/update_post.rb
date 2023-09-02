@@ -1,7 +1,7 @@
 class Hashnode::UpdatePost < Hashnode::Base
-  def initialize(authorization_code:, publication_id:, post:)
-    @authorization_code = authorization_code
-    @publication_id = publication_id
+  def initialize(user:, post:)
+    @authorization_code = user.hashnode_access_token
+    @publication_id = user.get_hashnode_publication_id
     @post = post
   end
 

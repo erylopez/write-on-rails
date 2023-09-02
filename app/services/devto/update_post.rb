@@ -1,8 +1,7 @@
 class Devto::UpdatePost < Devto::Base
-  def initialize(api_key:, post:)
-    @api_key = api_key
+  def initialize(user:, post:)
+    @api_key = user.devto_api_key
     @post = post
-    @devto_id = @post.devto_id
   end
 
   def call

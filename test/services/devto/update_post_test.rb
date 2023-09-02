@@ -10,7 +10,7 @@ class Devto::UpdatePostTest < ActiveSupport::TestCase
         devto_id: "123456"
       )
 
-      response = Devto::UpdatePost.new(api_key: user.devto_api_key, post: post).call
+      response = Devto::UpdatePost.new(user: user, post: post).call
       assert response.success?
     end
   end
