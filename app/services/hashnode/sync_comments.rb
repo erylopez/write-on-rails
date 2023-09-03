@@ -19,7 +19,7 @@ class Hashnode::SyncComments < Hashnode::Base
 
       hashnode_comment["replies"].each do |hashnode_reply|
         reply = Comment.where(hashnode_comment_id: hashnode_reply["_id"], post: @post).first_or_create do |new_reply|
-          new_reply.parent = Comment.find_by(hashnode_comment_id: hashnode_comment["_id"])
+          new_reply.parent  = comment
           new_reply.content = hashnode_reply["content"]
         end
 
