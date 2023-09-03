@@ -57,16 +57,18 @@
           <% end %>
         </ul>
       </div>
-      <div id="accordion-collapse" data-accordion="collapse">
-        <h2 id="accordion-post-body">
-          <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 rounded-t-lg  dark:text-gray-400 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="false" aria-controls="accordion-collapse-body-1">
-            <span>Post Body</span>
+      <div data-controller="dropdown">
+        <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 rounded-t-lg  dark:text-gray-400 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800" data-action="click->dropdown#toggle">
+          <span>Post Body</span>
+          <div id="dropdownArrow" data-dropdown-target="dropdownArrow">
             <%= embedded_svg("chevron-down", class: "w-4 h-4") %>
-          </button>
-        </h2>
-        <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-post-body" data-controller="markdown-viewer">
+          </div>
+        </button>
+        <div id="dropdownMenu" data-dropdown-target="dropdownMenu" class="hidden" data-controller="markdown-viewer">
           <div class="p-5 rounded-b-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-            <p class="text-gray-800 dark:text-gray-300" id="viewer" data-markdown-viewer-target="content"><%= @post.md_content %></p>
+            <p class="text-gray-800 dark:text-gray-300" id="viewer" data-markdown-viewer-target="content">
+              <%= @post.md_content %>
+            </p>
           </div>
         </div>
       </div>

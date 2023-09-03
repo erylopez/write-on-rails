@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import DropdownController from "./dropdown_controller"
+application.register("dropdown", DropdownController)
+
 import EditorController from "./editor_controller"
 application.register("editor", EditorController)
 
 import MarkdownViewerController from "./markdown_viewer_controller"
 application.register("markdown-viewer", MarkdownViewerController)
+
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)

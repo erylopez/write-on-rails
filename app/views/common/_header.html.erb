@@ -7,14 +7,16 @@
         </a>
         <div class="md:order-2">
           <% if current_user %>
-            <div class="relative">
-              <button id="dropdownAvatarNameButton" data-dropdown-toggle="dropdownAvatarName" class="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0  dark:text-white" type="button">
+            <div class="relative" data-controller="dropdown">
+              <button class="flex items-center text-sm font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:mr-0  dark:text-white" type="button" data-action="click->dropdown#toggle">
                 <%= image_tag current_user.github_avatar, class: "w-10 h-10 mr-2 rounded-full" %>
                 <%= current_user.email %>
-                <%= embedded_svg("chevron-down", class: "w-2.5 h-2.5 ml-2.5")%>
+                <div id="dropdownArrow" data-dropdown-target="dropdownArrow" class="ml-2">
+                  <%= embedded_svg("chevron-down", class: "w-2.5 h-2.5")%>
+                </div>
               </button>
-              <div id="dropdownAvatarName" class="z-10 hidden absolute top-14 right-0  bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+              <div id="dropdownMenu" data-dropdown-target="dropdownMenu" class="z-10 hidden absolute top-14 right-0  bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" >
                   <li>
                     <%= link_to "Dashboard", dashboard_index_path, class:"block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"%>
                   </li>
