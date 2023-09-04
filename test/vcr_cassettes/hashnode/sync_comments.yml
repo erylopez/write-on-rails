@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"\n      {\n        post(slug: \"hello-world\", hostname:
+        \"matiasmoya.hashnode.dev\") {\n          _id\n          responses {\n            _id\n            content\n            contentMarkdown\n            stamp\n            post\n            totalReactions\n            isCollapsed\n            isActive\n            dateAdded\n            popularity\n            replies
+        {\n              _id\n              isActive\n              stamp\n              totalReactions\n            }\n          }\n        }\n      }\n    "}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - hashnode-access-token
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '937'
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      Gcdn-Cache:
+      - PASS
+      X-Powered-By:
+      - Stellate
+      Vary:
+      - Authorization, Accept-Encoding
+      Etag:
+      - W/"420-HfD7/oUz/DC1ohRn5heQEl2KCRE"
+      X-Timer:
+      - S1693747600.442175,VS0,VE1827
+      X-Cache-Hits:
+      - '0'
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      X-Cache:
+      - MISS
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      X-Served-By:
+      - cache-eze2230074-EZE
+      Content-Type:
+      - application/json; charset=utf-8
+      Via:
+      - 1.1 varnish
+      Date:
+      - Sun, 03 Sep 2023 13:26:42 GMT
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"post":{"_id":"64ebf1fc0370412e6782ecc4","responses":[{"_id":"64f2aca7ee6c557cc673ca9f","content":"<p>Testing
+        the new GQL api</p>\n","contentMarkdown":"Testing the new GQL api","stamp":"clm1gwg8s00lf74nvg8c92lo6","post":"64ebf1fc0370412e6782ecc4","totalReactions":0,"isCollapsed":false,"isActive":true,"dateAdded":"2023-09-02T03:31:51.485Z","popularity":6324.7625,"replies":[]},{"_id":"64f2afe56889c87c962d3bf4","content":"<p>From
+        the v1 graphql endpoints</p>\n","contentMarkdown":"From the v1 graphql endpoints","stamp":"clm1he8n500ob5snv3dvv3vvu","post":"64ebf1fc0370412e6782ecc4","totalReactions":0,"isCollapsed":false,"isActive":true,"dateAdded":"2023-09-02T03:45:41.442Z","popularity":6324.7809,"replies":[{"_id":"64f2b0d4ee6c557cc673cb05","isActive":true,"stamp":"clm1hjd8o00nf74nv8s6e59mt","totalReactions":0},{"_id":"64f2b13f6889c87c962d3c0f","isActive":true,"stamp":"clm1hlng500om5snv8kz229gm","totalReactions":0}]}]}}}'
+  recorded_at: Sun, 03 Sep 2023 13:26:42 GMT
+recorded_with: VCR 6.2.0

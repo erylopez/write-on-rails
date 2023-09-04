@@ -1,0 +1,8 @@
+one:
+  post: one
+  content: First comment
+
+two:
+  post: one
+  content: First reply
+  parent: one

@@ -11,4 +11,12 @@ class PostTest < ActiveSupport::TestCase
       Post.from_notion(notion_reponse)
     end
   end
+
+  test "can have many comments" do
+    post = posts(:one)
+    comment = Comment.new(content: "This is a comment", post: post)
+
+    assert comment.save
+    assert comment.in?(post.comments)
+  end
 end
