@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Post::UpdatePublishedTest < ActionDispatch::IntegrationTest
+class Post::UpdatePublishedStatusFromDevtoTest < ActionDispatch::IntegrationTest
   test "A user can unpublish a post on Dev.to, and the 'devto_draft' attribute will be modified if the response is successful" do
     user = users(:one)
     post = user.posts.create(title: "title", md_content: "example", devto_draft: false, devto_id: "12345")

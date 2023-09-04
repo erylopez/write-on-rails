@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.hashnode.com/
+    body:
+      encoding: UTF-8
+      string: '{"query":"mutation deletePost($id: String!){         deletePost(id:
+        $id){           code           success           message         }       }","variables":{"id":"123456"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - asdf1234-1234-1234-1234-123randomstring123
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '84'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '600'
+      Access-Control-Expose-Headers:
+      - "*"
+      Gcdn-Cache:
+      - PASS
+      Gcdn-Passed-Through-Request:
+      - bypass-cache-header:Authorization
+      Gcdn-Passed-Through-Response:
+      - passthrough-only
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cache-Control:
+      - s-maxage=0, no-cache, no-store, must-revalidate
+      Access-Control-Allow-Methods:
+      - POST, GET, HEAD, OPTIONS
+      Access-Control-Allow-Headers:
+      - "*"
+      X-Powered-By:
+      - Stellate
+      Vary:
+      - Authorization, Accept-Encoding
+      Etag:
+      - W/"71-1vvPAHesPOqcU5Tqu5hbZpg/QQk"
+      X-Timer:
+      - S1693697366.813581,VS0,VE1216
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Cache-Hits:
+      - '0'
+      X-Cache:
+      - MISS
+      X-Served-By:
+      - cache-eze2230060-EZE
+      Via:
+      - 1.1 varnish
+      Date:
+      - Sat, 02 Sep 2023 23:29:27 GMT
+      Accept-Ranges:
+      - bytes
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"deletePost":{"code":200,"success":true,"message":"deleted
+        successfully"}}}'
+  recorded_at: Sat, 02 Sep 2023 23:29:26 GMT
+recorded_with: VCR 6.2.0
