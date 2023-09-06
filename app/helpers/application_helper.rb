@@ -148,4 +148,12 @@ module ApplicationHelper
       link_to "Sync Stats from #{platform.capitalize}", sync_stats_path(platform: platform), data: {turbo_method: :post}, class: "button-default w-full bg-purple-600"
     end
   end
+
+  def integration_box_content(platform:)
+    content_tag(:div, class: "flex items-center text-base font-bold text-gray-900 dark:text-gray-300") do
+      concat image_tag("/#{platform}.png", alt: "writing photo", class: "w-6 h-6")
+      concat content_tag(:span, platform.capitalize, class: "flex-1 ml-2 whitespace-nowrap")
+      concat content_tag(:span, "Synced", class: "text-sm font-light") if current_user.send("#{platform}_ready?")
+    end
+  end
 end

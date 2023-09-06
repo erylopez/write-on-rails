@@ -1,0 +1,6 @@
+<%= turbo_stream.update "flash" do %>
+  <%= render partial: "common/flash_notice"%>
+<% end %>
+<%= turbo_stream.update "integrations" do %>
+  <%= render partial: "common/integrations_box" %>
+<% end %>

@@ -5,40 +5,19 @@
   <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Link your account with other integrated apps and share your posts across all linked platforms!</p>
   <%= form_for current_user, url: integrations_path, method: :post do |f| %>
     <ul class="my-4 space-y-3">
-      <% if current_user.devto_api_key.blank? %>
-        <li class="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
-          <div class="flex items-center text-base font-bold text-gray-900 dark:text-gray-300 mb-3 ">
-            <img src="/devto.png" alt="writing photo" class="w-6 h-6">
-            <span class="flex-1 ml-2 whitespace-nowrap">Dev.to</span>
-            <span class="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-800 dark:text-gray-400">Popular</span>
-          </div>
+      <li class="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+        <%= integration_box_content(platform: "devto") %>
+        <% if !current_user.devto_ready? %>
           <div class="relative w-full ">
             <%= f.text_field :devto_api_key, placeholder: "Dev.to key", class: "block mb-2 w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
             <a href="https://dev.to/settings/extensions/#api_secret_description" target="_blank" class="font-medium text-blue-600 dark:text-blue-400 hover:underline">Get the key</a>
           </div>
-        </li>
-      <% else %>
-        <li>
-          <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white">
-            <img src="/devto.png" alt="writing photo" class="w-6 h-6">
-            <span class="flex-1 ml-3 whitespace-nowrap">Dev.to</span>
-            <% if post.devto_id %>
-              <%= publish_devto_toggle_link(post: post)%>
-            <% else %>
-              <%= link_to reposts_path(post_id: post.id, platform: "devto"), data: { turbo_method: :post }, class: "inline-flex items-center justify-center p-2 ml-3 text-sm font-medium text-gray-300 bg-blue-700 rounded dark:bg-blue-600 " do %>
-                Repost
-              <% end %>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-      <% if current_user.hashnode_access_token.blank? && current_user.hashnode_username.blank? %>
-        <li class="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
-          <div class="flex items-center text-base font-bold text-gray-900 dark:text-gray-300 mb-3 ">
-            <img src="/hashnode.png" alt="writing photo" class="w-6 h-6">
-            <span class="flex-1 ml-2 whitespace-nowrap">Hashnode</span>
-          </div>
-          <div class="relative w-full mb-3">
+        <% end %>
+      </li>
+      <li class="p-3 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+        <%= integration_box_content(platform: "hashnode") %>
+        <% if !current_user.hashnode_ready? %>
+          <div class="relative w-full my-3">
             <%= f.text_field :hashnode_access_token, placeholder: "Hashnode Token", class: "block w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
             <a href="https://hashnode.com/settings/developer" target="_blank" class="font-medium text-blue-600 dark:text-blue-400 hover:underline">Get the key</a>
           </div>
@@ -46,46 +25,9 @@
             <%= f.text_field :hashnode_username, placeholder: "Hashnode username", class: "block w-full p-4 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
           </div>
         </li>
-      <% else %>
-        <li>
-          <div class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50  dark:bg-gray-600  dark:text-white" data-controller="modal">
-            <img src="/hashnode.png" alt="writing photo" class="w-6 h-6">
-            <span class="flex-1 ml-3 whitespace-nowrap">Hashnode</span>
-            <% if post.hashnode_id %>
-              <button class="button-danger" type="button" data-action="click->modal#open">
-                Unpublish
-              </button>
-              <div id="backdrop" data-modal-target="backdrop" class="hidden fixed inset-0 items-center justify-center bg-black bg-opacity-70">
-                <div id="modalbox" data-modal-target="modalbox" tabindex="-1" class="fixed inset-0 flex justify-center items-center z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                  <div class="relative w-full max-w-md max-h-full">
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <button data-action="click->modal#close" type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal">
-                        <%= embedded_svg("close", class: "w-3 h-3") %>
-                        <span class="sr-only">Close modal</span>
-                      </button>
-                      <div class="p-6 text-center">
-                        <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                          Currently Hashnode doesn't support unpublishing posts, but you can delete it from your Hashnode account.
-                        </h3>
-                        <%= link_to delete_from_hashnode_post_path(post), data: {turbo_method: :post, action: "click->modal#close" }, class: "text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2" do %>
-                          Delete on Hashnode
-                        <% end %>
-                        <button data-action="click->modal#close" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No, cancel</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <% else %>
-              <%= link_to reposts_path(post_id: post.id, platform: "hashnode"), data: { turbo_method: :post }, class: "inline-flex items-center justify-center p-2 ml-3 text-sm font-medium text-gray-300 bg-blue-700 rounded dark:bg-blue-600 " do %>
-                Repost
-              <% end %>
-            <% end %>
-          </div>
-        </li>
       <% end %>
     </ul>
-    <% if current_user.hashnode_access_token.blank? || current_user.devto_api_key.blank? %>
+    <% if !current_user.hashnode_ready? || !current_user.devto_ready? %>
       <button type="submit" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-base  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-full  dark:text-gray-300  border border-gray-200  focus:ring-[#24292F]/50  text-[15px] inline-flex gap-2 items-center justify-center  dark:border-gray-600 mr-2 mb-2">
         Continue
       </button>
