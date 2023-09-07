@@ -10,6 +10,9 @@ application.register("dropdown", DropdownController)
 import EditorController from "./editor_controller"
 application.register("editor", EditorController)
 
+import FlashController from "./flash_controller"
+application.register("flash", FlashController)
+
 import MarkdownViewerController from "./markdown_viewer_controller"
 application.register("markdown-viewer", MarkdownViewerController)
 

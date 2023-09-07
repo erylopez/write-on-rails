@@ -53,7 +53,7 @@ class PostsController < ApplicationController
 
     if response
       @post.update(devto_draft: !@post.devto_draft)
-      flash.now[:success] = "Post has been updated on Devto."
+      flash.now[:success] = "Post has been #{published_or_unpublished(published: params[:published])} on Devto."
     else
       flash.now[:error] = "Something went wrong. Please try again later."
     end
@@ -79,6 +79,10 @@ class PostsController < ApplicationController
   end
 
   protected
+
+  def published_or_unpublished(published:)
+    (published == "true") ? "published" : "unpublished"
+  end
 
   def post_params
     params.require(:post).permit(:title, :md_content)

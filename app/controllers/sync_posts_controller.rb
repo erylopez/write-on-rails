@@ -10,6 +10,6 @@ class SyncPostsController < ApplicationController
       Devto::SyncPosts.new(user: current_user).call
     end
 
-    redirect_to dashboard_index_path, notice: "Posts imported successfully"
+    redirect_to dashboard_index_path, notice: "Posts imported from #{platform} successfully"
   end
 end
