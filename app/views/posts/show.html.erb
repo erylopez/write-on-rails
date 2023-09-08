@@ -76,6 +76,19 @@
     <div class=" mb-5 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <span class="text-gray-800 dark:text-gray-300">Comments here</span>
       <%= link_to "Sync comments", post_sync_comments_path(@post), data: {turbo_method: :post} %>
+      <div class="mt-5">
+        <%= turbo_frame_tag "comments" do %>
+          <section class="bg-white dark:bg-gray-800 py-8 antialiased">
+            <div class="mx-auto">
+              <% @post.comments.root_comments.each do |comment| %>
+                <article class="px-6 py-3 text-base bg-white rounded-lg dark:bg-gray-900 mb-4">
+                  <%= render partial: 'posts/comments', locals: {comment: comment} %>
+                </article>
+              <% end %>
+            </div>
+          </section>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="col-span-1">

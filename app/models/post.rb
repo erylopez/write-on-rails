@@ -19,7 +19,7 @@ class Post < ApplicationRecord
   end
 
   def total_comments
-    hashnode_reply_count.to_i + devto_comments_count.to_i
+    comments.count
   end
 
   def total_likes

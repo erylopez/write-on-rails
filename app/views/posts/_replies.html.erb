@@ -1,0 +1,27 @@
+<div class="ml-6">
+  <div class="mb-6">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <p class="inline-flex gap-2 items-center mr-3 text-sm text-gray-900 dark:text-white font-semibold">
+          <img class="mr-2 w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg" alt="Michael Gough">
+          Michael Gough
+        </p>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          <time pubdate datetime="2022-02-08" title="February 8th, 2022">Feb. 8, 2022</time>
+        </p>
+      </div>
+    </div>
+    <p class="text-gray-500 dark:text-gray-400">
+      <%= strip_tags(comment.content) %>
+    </p>
+    <div class="flex items-center mt-4 space-x-4 text-sm text-gray-500 dark:text-gray-400 font-medium">
+      <%= embedded_svg("heart", class: "mr-1 w-4 h-4") %> 15
+      <button type="button" class="flex items-center hover:underline">
+        <%= embedded_svg("chat-bubble-bottom-center", class: "mr-1 w-4 h-4") %> Reply
+      </button>
+    </div>
+  </div>
+  <% comment.comments.each do |reply| %>
+    <%= render partial: 'posts/replies', locals: {comment: reply} %>
+  <% end %>
+</div>

@@ -4,4 +4,14 @@ class Comment < ApplicationRecord
   has_many :comments, foreign_key: :parent_id, dependent: :destroy, inverse_of: :parent
 
   validates :content, presence: true
+
+  scope :root_comments, -> { where(parent_id: nil) }
+
+  def from_platform
+    if hashnode_comment_id.present?
+      "Hashnode"
+    else
+      "Dev.to"
+    end
+  end
 end
