@@ -8,10 +8,10 @@ http_interactions:
       string: '{"query":"query getComments($after: String, $host: String!, $slug:
         String!) {         publication(host: $host) {           post(slug: $slug){             comments(first:
         50, after: $after) {               totalDocuments               pageInfo {                 hasNextPage                 endCursor               }               edges
-        {                 cursor                 node {                   id                   content
+        {                 cursor                 node {                   id                   dateAdded                   content
         {                     html                   }                   totalReactions                   author
         {                     name                     username                     profilePicture                   }                   replies(first:
-        50){                     edges{                       node {                         id                         content
+        50){                     edges{                       node {                         id                         dateAdded                         content
         { html }                         author {                           name                           username                           profilePicture                         }                       }                     }                   }                 }               }             }           }         }       }","variables":{"slug":"hello-world","host":"matiasmoya.hashnode.dev","after":""}}'
     headers:
       Content-Type:
@@ -32,7 +32,7 @@ http_interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '948'
+      - '1104'
       Content-Type:
       - application/json; charset=utf-8
       Access-Control-Max-Age:
@@ -42,9 +42,9 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'true'
       Apigw-Requestid:
-      - K6uV_jMbvHcESdA=
+      - K6wmIggZvHcESig=
       Stellate-Query-Hash:
-      - '1373645258649408'
+      - '1093170136615913'
       Access-Control-Allow-Methods:
       - POST, GET, HEAD, OPTIONS
       Access-Control-Allow-Headers:
@@ -56,25 +56,25 @@ http_interactions:
       Vary:
       - Accept-Encoding, hn-stellate-bypass-cache
       X-Timer:
-      - S1694142707.733471,VS0,VE292
+      - S1694143629.237914,VS0,VE306
       X-Cache-Hits:
       - '0'
       X-Cache:
       - MISS
       X-Served-By:
-      - cache-eze2230067-EZE
+      - cache-eze2230033-EZE
       Age:
       - '0'
       Via:
       - 1.1 varnish
       Date:
-      - Fri, 08 Sep 2023 03:11:47 GMT
+      - Fri, 08 Sep 2023 03:27:09 GMT
       Accept-Ranges:
       - bytes
       Cache-Control:
       - public, s-maxage=5, stale-while-revalidate=20
       Stellate-Rate-Limit-Budget-Required:
-      - '38606'
+      - '41156'
       Gcdn-Cache:
       - MISS
       Stellate-Rate-Limit-Budget-Remaining:
@@ -85,11 +85,11 @@ http_interactions:
       - pass
     body:
       encoding: ASCII-8BIT
-      string: '{"data":{"publication":{"post":{"comments":{"totalDocuments":2,"pageInfo":{"hasNextPage":false,"endCursor":"Mg=="},"edges":[{"cursor":"MQ==","node":{"id":"64f2aca7ee6c557cc673ca9f","content":{"html":"<p>Testing
-        the new GQL api</p>\n"},"totalReactions":0,"author":{"name":"Matt Hinczuk","username":"hinczuk","profilePicture":null},"replies":{"edges":[]}}},{"cursor":"Mg==","node":{"id":"64f2afe56889c87c962d3bf4","content":{"html":"<p>From
+      string: '{"data":{"publication":{"post":{"comments":{"totalDocuments":2,"pageInfo":{"hasNextPage":false,"endCursor":"Mg=="},"edges":[{"cursor":"MQ==","node":{"id":"64f2aca7ee6c557cc673ca9f","dateAdded":"2023-09-02T03:31:51.485Z","content":{"html":"<p>Testing
+        the new GQL api</p>\n"},"totalReactions":0,"author":{"name":"Matt Hinczuk","username":"hinczuk","profilePicture":null},"replies":{"edges":[]}}},{"cursor":"Mg==","node":{"id":"64f2afe56889c87c962d3bf4","dateAdded":"2023-09-02T03:45:41.442Z","content":{"html":"<p>From
         the v1 graphql endpoints</p>\n"},"totalReactions":0,"author":{"name":"Matt
-        Hinczuk","username":"hinczuk","profilePicture":null},"replies":{"edges":[{"node":{"id":"64f2b0d4ee6c557cc673cb05","content":{"html":"<p>Replied
-        from the gph v1</p>\n"},"author":{"name":"Matt Hinczuk","username":"hinczuk","profilePicture":null}}},{"node":{"id":"64f2b13f6889c87c962d3c0f","content":{"html":"<p>Replied
+        Hinczuk","username":"hinczuk","profilePicture":null},"replies":{"edges":[{"node":{"id":"64f2b0d4ee6c557cc673cb05","dateAdded":"2023-09-02T03:49:40.681Z","content":{"html":"<p>Replied
+        from the gph v1</p>\n"},"author":{"name":"Matt Hinczuk","username":"hinczuk","profilePicture":null}}},{"node":{"id":"64f2b13f6889c87c962d3c0f","dateAdded":"2023-09-02T03:51:27.222Z","content":{"html":"<p>Replied
         from the gph v1 again</p>\n"},"author":{"name":"Matt Hinczuk","username":"hinczuk","profilePicture":null}}}]}}}]}}}}}'
-  recorded_at: Fri, 08 Sep 2023 03:11:46 GMT
+  recorded_at: Fri, 08 Sep 2023 03:27:09 GMT
 recorded_with: VCR 6.2.0

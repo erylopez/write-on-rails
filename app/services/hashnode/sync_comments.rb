@@ -24,6 +24,7 @@ class Hashnode::SyncComments < Hashnode::Base
         new_comment.content = hashnode_comment.dig("content", "html")
         new_comment.author_name = hashnode_comment.dig("author", "name")
         new_comment.author_avatar = hashnode_comment.dig("author", "profilePicture") || "/default-avatar.png"
+        new_comment.published_at = hashnode_comment["dateAdded"]
       end
 
       comment.update(content: hashnode_comment.dig("content", "html")) if comment.content != hashnode_comment.dig("content", "html")
@@ -34,6 +35,7 @@ class Hashnode::SyncComments < Hashnode::Base
           new_reply.content = hashnode_reply.dig("content", "html")
           new_reply.author_name = hashnode_reply.dig("author", "name")
           new_reply.author_avatar = hashnode_reply.dig("author", "profilePicture") || "/default-avatar.png"
+          new_reply.published_at = hashnode_reply["dateAdded"]
         end
 
         reply.update(content: hashnode_reply.dig("content", "html")) if reply.content != hashnode_reply.dig("content", "html")
@@ -66,6 +68,7 @@ class Hashnode::SyncComments < Hashnode::Base
                 cursor
                 node {
                   id
+                  dateAdded
                   content {
                     html
                   }
@@ -79,6 +82,7 @@ class Hashnode::SyncComments < Hashnode::Base
                     edges{
                       node {
                         id
+                        dateAdded
                         content { html }
                         author {
                           name
