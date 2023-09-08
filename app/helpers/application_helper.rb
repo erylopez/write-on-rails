@@ -145,7 +145,9 @@ module ApplicationHelper
 
   def sync_stats_link(platform:)
     if current_user.send("#{platform}_ready?")
-      link_to "Sync Stats from #{platform.capitalize}", sync_stats_path(platform: platform), data: {turbo_method: :post}, class: "button-default w-full bg-purple-600"
+      link_to "Sync Stats from #{platform.capitalize}", sync_stats_path(platform: platform), data: {turbo_method: :post}, class: "button-default w-full bg-purple-600" if current_user.posts.send("#{platform}_posts").any?
+    else
+      link_to "Connect #{platform.capitalize}", send("auth_#{platform}_callback_path"), class: "button-default w-full bg-purple-600"
     end
   end
 
