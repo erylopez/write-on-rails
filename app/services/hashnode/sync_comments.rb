@@ -5,10 +5,11 @@ class Hashnode::SyncComments < Hashnode::Base
   end
 
   def call
-    query = post_with_comments_query(slug: @post.hashnode_slug, hostname: @post.user.hashnode_blog_handle)
-    response = HTTParty.post("https://api.hashnode.com", body: {query: query}.to_json, headers: headers)
+    variables = {"slug" => @post.hashnode_slug, "hostname" => @post.user.hashnode_blog_handle}
+    response = HTTParty.post("https://api.hashnode.com", body: {query: post_with_comments_query, variables: variables}.to_json, headers: headers)
     comments = response.dig("data", "post", "responses")
-    return if comments.try(:empty?)
+
+    return unless comments&.any?
 
     comments.each do |hashnode_comment|
       comment = Comment.where(hashnode_comment_id: hashnode_comment["_id"], post: @post).first_or_create do |new_comment|
@@ -30,31 +31,22 @@ class Hashnode::SyncComments < Hashnode::Base
     response
   end
 
-  def post_with_comments_query(slug:, hostname:)
-    %(
-      {
-        post(slug: "#{slug}", hostname: "#{hostname}.hashnode.dev") {
+  def post_with_comments_query
+    %{
+      query getComments($slug: String!, $hostname:String!){
+        post(slug: $slug, hostname: $hostname) {
           _id
           responses {
             _id
             content
             contentMarkdown
-            stamp
-            post
-            totalReactions
-            isCollapsed
-            isActive
-            dateAdded
-            popularity
             replies {
               _id
-              isActive
-              stamp
-              totalReactions
+              content
             }
           }
         }
       }
-    )
+    }.gsub(/\n+/, " ").strip
   end
 end

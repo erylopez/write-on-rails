@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   resources :posts do
     post :update_published_status_from_devto, on: :member
     post :delete_from_hashnode, on: :member
+    resources :sync_comments, only: :create
   end
 
   resources :reposts
-  resources :dashboard, only: :index
-  resources :sync_posts, only: :create
-  resources :sync_stats, only: :create
-  resources :integrations, only: [:create]
+  resources :dashboard,     only: :index
+  resources :sync_posts,    only: :create
+  resources :sync_stats,    only: :create
+  resources :integrations,  only: :create
 
   root "home#index"
 end
